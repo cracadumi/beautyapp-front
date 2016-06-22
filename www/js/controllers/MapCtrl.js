@@ -1,6 +1,8 @@
 angular.module('starter')
   .controller('MapCtrl', function($q, $scope, $ionicLoading, $timeout) {
 
+    var DEFAULT_MAP_LOC = new google.maps.LatLng(43.07493,-89.381388);
+
     function _getCurPosition() {
       var deferred = $q.defer();
       $ionicLoading.show({showBackdrop: false});
@@ -14,9 +16,8 @@ angular.module('starter')
       return deferred.promise;
     }
 
-    var defaultLoc = new google.maps.LatLng(43.07493,-89.381388);
     var mapOptions = {
-      center: defaultLoc,
+      center: DEFAULT_MAP_LOC,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
