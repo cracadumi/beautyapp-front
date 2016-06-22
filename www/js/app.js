@@ -84,7 +84,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-signup': {
           templateUrl: 'templates/tab-signup.html',
-          controller: 'AccountCtrl'
+          controller: 'SignupCtrl'
         }
       }
     })
