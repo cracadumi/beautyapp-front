@@ -37,13 +37,22 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'starter.services'])
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
+    .state('tab.signup', {
+      url: '/signup',
+      views: {
+        'tab-signup': {
+          templateUrl: 'templates/tab-signup.html',
+          controller: 'SignupgitCtrl'
+        }
+      }
+    })
 
-  .state('tab.signup', {
-    url: '/signup',
+  .state('tab.signin', {
+    url: '/signin',
     views: {
-      'tab-signup': {
-        templateUrl: 'templates/tab-signup.html',
-        controller: 'SignupCtrl'
+      'tab-signin': {
+        templateUrl: 'templates/tab-signin.html',
+        controller: 'SigninCtrl'
       }
     }
   })
@@ -88,6 +97,6 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/signup');
+  $urlRouterProvider.otherwise('/tab/signin');
 
 });
