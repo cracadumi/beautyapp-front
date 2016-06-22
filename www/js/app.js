@@ -59,12 +59,12 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'starter.controllers', 
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+    .state('tab.favorites-detail', {
+      url: '/favorites/:favId',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-favorites': {
+          templateUrl: 'templates/tab-favorites-detail.html',
+          controller: 'FavoritesDetailCtrl'
         }
       }
     })
