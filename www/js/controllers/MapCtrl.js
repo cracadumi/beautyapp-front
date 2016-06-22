@@ -49,6 +49,18 @@ angular.module('starter')
     }, function(error){
       console.log("Could not get location");
     });
+
+    /**************************************
+     * This button will center the map on user's position
+     * ***********************************/
+    $scope.centerOnMe = function() {
+      _getCurPosition().then(function(latLng){
+        $scope.map.panTo(latLng);
+      }, function(error){
+        console.log("Could not get location");
+      });
+    };
+
   });
 
 /*
