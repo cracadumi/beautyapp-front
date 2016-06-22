@@ -42,7 +42,7 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'jett.ionic.filter.bar'
       views: {
         'tab-signup': {
           templateUrl: 'templates/tab-signup.html',
-          controller: 'SignupgitCtrl'
+          controller: 'SignupCtrl'
         }
       }
     })
