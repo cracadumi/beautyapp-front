@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ion-floating-menu', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'ion-floating-menu', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,7 +38,15 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'starter.controllers', 
     templateUrl: 'templates/tabs.html'
   })
 
-  // Each tab has its own nav history stack:
+  .state('tab.signup', {
+    url: '/signup',
+    views: {
+      'tab-signup': {
+        templateUrl: 'templates/tab-signup.html',
+        controller: 'SignupCtrl'
+      }
+    }
+  })
 
   .state('tab.map', {
     url: '/map',
@@ -77,18 +85,7 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'starter.controllers', 
         controller: 'AccountCtrl'
       }
     }
-  })
-
-    .state('tab.signup', {
-      url: '/signup',
-      views: {
-        'tab-signup': {
-          templateUrl: 'templates/tab-signup.html',
-          controller: 'SignupCtrl'
-        }
-      }
-    })
-  ;
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/map');
