@@ -29,3 +29,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .scroll {
   height: 100%;
 }
+.sign-up{
+  background:green;
+  .plus{
+
+  }
+}
+
+@import "www/lib/ionic/scss/ionic";
+
+@import "scss/_sign-up";
+
+//@import "scss/variables/colors";
+//@import "scss/_fonts";
+//@import "scss/_login";
+//@import "scss/_profile";
+//@import "scss/_sidemenu";
+//@import "scss/_global_style";
