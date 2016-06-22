@@ -49,3 +49,10 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task('ngdocs', [], function () {
+  var gulpDocs = require('gulp-ngdocs');
+  return gulp.src('www/js/**/*.js')
+    .pipe(gulpDocs.process())
+    .pipe(gulp.dest('./docs'));
+});
