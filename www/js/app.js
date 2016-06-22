@@ -88,6 +88,6 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'jett.ionic.filter.bar'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/map');
+  $urlRouterProvider.otherwise('/tab/signup');
 
 });
