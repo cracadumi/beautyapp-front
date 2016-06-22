@@ -50,12 +50,12 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'starter.controllers', 
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.favorites', {
+      url: '/favorites',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-favorites': {
+          templateUrl: 'templates/tab-favorites.html',
+          controller: 'FavoritesCtrl'
         }
       }
     })
