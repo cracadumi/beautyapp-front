@@ -2,7 +2,12 @@ angular.module('starter')
   .controller('MapCtrl', function($q, $scope, $ionicLoading, $timeout) {
 
     var DEFAULT_MAP_LOC = new google.maps.LatLng(43.07493,-89.381388);
-
+    //Unhide tabbar navigating from signin/signup state
+    $scope.$on('$ionicView.beforeEnter', function(e) {
+      console.log('hiding tabbar');
+      $rootScope.hideTabs = true;
+    });
+    
     function _getCurPosition() {
       var deferred = $q.defer();
       $ionicLoading.show({showBackdrop: false});

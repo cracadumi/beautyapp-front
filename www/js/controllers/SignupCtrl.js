@@ -1,11 +1,13 @@
 angular.module('starter')
   .controller('SignupCtrl', function($rootScope, $scope) {
-    // Hide tabbar before app enters the view
-    $scope.$on('$ionicView.beforeEnter', function(e) {
+    /*$scope.$on('$ionicView.enter', function(e) {
+      console.log('hiding tabbar');
       $rootScope.hideTabs = true;
     });
     //show tabbar when user leaves the view
-    $scope.$on('$ionicView.afterLeave', function(e) {
-      $rootScope.hideTabs = true;
-    });
-  })
+    $scope.$on('$ionicView.leave', function(e) {
+      console.log('showing tabbar');
+      $rootScope.hideTabs = false;
+    });*/
+
+  });
