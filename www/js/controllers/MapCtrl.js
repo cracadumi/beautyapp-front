@@ -18,7 +18,11 @@ angular.module('starter')
     var mapOptions = {
       center: defaultLoc,
       zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false,
+      zoomControl: false,
+      scaleControl: false,
+      streetViewControl: false
     };
 
     $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
