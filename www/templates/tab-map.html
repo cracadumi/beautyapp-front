@@ -10,8 +10,25 @@
       <i class="icon ion-levels"></i>
     </button>
   </div>
-  <ion-content class="has-header">
-    <div id="map" data-tap-disabled="true"></div>
+  <ion-content class="has-header" scroll="false"  data-tap-disabled="true">
+    <!--<div id="map" data-tap-disabled="true"></div>-->
+    <!--<ui-gmap-google-map center='map.center' zoom='map.zoom' options="mapOptions">
+
+      <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+
+    </ui-gmap-google-map>-->
+    <ui-gmap-google-map center="map.center" draggable="true" zoom="map.zoom" options="map.options" events="map.events">
+      <ui-gmap-markers models="map.markers"
+                       doCluster="true"
+                       coords="'self'"
+                       icon="'icon'"
+                       click="'onclicked'"
+                       options="'options'"
+                       idkey='id'
+                       clusterOptions='map.clusterOptions'
+                       control='markerControl.getChildMarkers().get(id)'>
+      </ui-gmap-markers>
+    </ui-gmap-google-map>
   </ion-content>
   <ion-floating-button click="centerOnMe()" has-footer="true" button-color="#886aea" icon="ion-navigate" iconColor="#fff">
   </ion-floating-button>

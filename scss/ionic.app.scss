@@ -21,10 +21,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-#map {
+/*#map {
   width: 100%;
   height: 100%;
-}
+}*/
 
 .scroll {
   height: 100%;
@@ -39,6 +39,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 @import "scss/_sign";
 @import "scss/variables/_colors";
+@import "scss/map";
 //@import "scss/_fonts";
 //@import "scss/_login";
 //@import "scss/_profile";
