@@ -19629,17 +19629,6 @@ a.button {
   width: 100%;
   height: 100%;
   position: relative; }
-  .sign-up :after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background: #1d1e3a;
-    opacity: 0.4;
-    width: 100%;
-    height: 100vh;
-    z-index: 1; }
   .sign-up .background {
     width: 100vw;
     left: 0;
@@ -19687,6 +19676,15 @@ a.button {
         margin-top: 10px; }
       .sign-up .bottom-content .bottom-text span {
         font: bold 15px arial; }
-    .sign-up .bottom-content :after {
-      background: transparent;
-      display: none; }
+  .sign-up .sign-up-form sup {
+    color: red;
+    font-size: 18px;
+    height: 6px;
+    display: inline-block;
+    vertical-align: bottom; }
+
+.button-positive {
+  background-color: #3b579d !important; }
+
+.button-royal {
+  background-color: #6735ce !important; }
