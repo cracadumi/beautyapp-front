@@ -46,7 +46,16 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'google.places', 'start
         }
       }
     })
-
+  //signUpEmail
+    .state('tab.signup-email', {
+      url: '/signup-email',
+      views: {
+        'tab-signup': {
+          templateUrl: 'templates/tab-signup-email.html',
+          controller: 'SignupCtrl'
+        }
+      }
+    })
   .state('tab.signin', {
     url: '/signin',
     views: {

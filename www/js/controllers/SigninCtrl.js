@@ -6,12 +6,11 @@ angular.module('starter')
       $rootScope.hideTabs = true;
     });
     //show tab bar when user signings successfully
-    /*$scope.$on('$ionicView.leave', function(e) {
-      console.log('showing tabbar');
-      $rootScope.hideTabs = false;
-    });*/
+    //$scope.$on('$ionicView.leave', function(e) {
+    //  console.log('showing tabbar');
+    //  $rootScope.hideTabs = false;
+    //});
     $scope.goToSignUp = function(){
       $state.go('tab.signup');
-      console.log("goo!");
     }
   });
