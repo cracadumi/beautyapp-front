@@ -1,10 +1,10 @@
 angular.module('starter')
-  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicLoading, $compile, uiGmapGoogleMapApi) {
+  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicLoading, $compile, uiGmapGoogleMapApi, $http) {
 
     //var DEFAULT_MAP_LOC = new google.maps.LatLng(43.07493,-89.381388);
     $scope.location = '';
 
-    /*uiGmapGoogleMapApi.then(function(map) {*/
+
     $scope.map = {
       "center": {
         "latitude": 51.844943699999995,
@@ -21,171 +21,13 @@ angular.module('starter')
         "optimized": true,
         "mapTypeId": "roadmap",
         "styles": [
-          /*{
-            "featureType": "poi",
-            "stylers": [
-              {
-                "visibility": "off"
-              }
-            ]
-          },
-          {
-            "featureType": "poi.park",
-            "stylers": [
-              {
-                "visibility": "simplified"
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "road",
-            "stylers": [
-              {
-                "visibility": "simplified"
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "water",
-            "stylers": [
-              {
-                "visibility": "simplified"
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "transit",
-            "stylers": [
-              {
-                "visibility": "simplified"
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "landscape",
-            "stylers": [
-              {
-                "visibility": "simplified"
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "road.highway",
-            "stylers": [
-              {
-                "visibility": "off"
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "road.highway",
-            "elementType": "geometry",
-            "stylers": [
-              {
-                "visibility": "on"
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "road.arterial",
-            "stylers": [
-              {
-                "visibility": "off"
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "water",
-            "stylers": [
-              {
-                "color": "#5f94ff"
-              },
-              {
-                "lightness": 26
-              },
-              {
-                "gamma": 5.86
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "road.highway",
-            "stylers": [
-              {
-                "weight": 0.6
-              },
-              {
-                "saturation": -85
-              },
-              {
-                "lightness": 61
-              }
-            ]
-          },*/
-          /*{
-            "featureType": "landscape",
-            "stylers": [
-              {
-                "hue": "#0066ff"
-              },
-              {
-                "saturation": 74
-              },
-              {
-                "lightness": 100
-              }
-            ]
-          }*/
         ]
       },
       "zoom": 13,
-      "events": {},
-      "clusterOptions": {
-        "minimumClusterSize": 5,
-        "styles": [
-          {
-            "height": 53,
-            "url": "img/markers/cluster_marker_53.png",
-            "width": 53
-          },
-          {
-            "height": 56,
-            "url": "img/markers/cluster_marker_56.png",
-            "width": 56
-          },
-          {
-            "height": 66,
-            "url": "img/markers/cluster_marker_66.png",
-            "width": 66
-          }
-        ]
-      }
+      "events": {}
     };
 
-     $scope.map.markers = [
-        {
-          "id": "50651",
-          "latitude": 51.8477469,
-          "longitude": 4.3141634,
-          "title": "Zorgambulance met spoed naar W. Plokkerstraat in Spijkenisse",
-          "distance": "585m",
-          "hoofdcat": "70",
-          "img": "http://snm-crm.nl/wealert/img/70/ambu_6_thumb.jpg?2u",
-          "reactiecount": "0",
-          "likecount": "1",
-          "showWindow": true,
-          "date": "2u",
-          "options": {
-            "labelContent": "&nbsp;&nbsp;&nbsp;585m<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2u",
-            "labelAnchor": "0 0",
-            "labelClass": "labelClass",
-            "animation": google.maps.Animation.DROP
-          }
-        }
-      ];
-
-
-    /*});*/
+     $scope.map.markers = [];
 
     //Unhide tabbar navigating from signin/signup state
     $scope.$on('$ionicView.beforeEnter', function(e) {
@@ -202,6 +44,27 @@ angular.module('starter')
         console.error('Unable to get location: ' + error.message);
         $ionicLoading.hide();
       });
+
+
+      //TODO remove this test code when done
+      /*var fd = new FormData();
+      fd.append('user[role]','user');
+      fd.append('user[password]','31q2w3e4r');
+      fd.append('user[email]','3em3@il.ru');
+      fd.append('user[name]','3Name');
+      fd.append('user[surname]','3Surname');
+      fd.append('user[username]','3sulyanoff3');
+      $http.post('http://beautyapp.herokuapp.com/api/v1/registrations.json', fd, {
+        //transformRequest: angular.identity,
+        headers: {'Content-Type': undefined}
+      })
+        .success(function(data){
+          console.log(data);
+        })
+        .error(function(e){
+          console.log(e);
+        });
+*/
       return deferred.promise;
     }
     /*var mapOptions = {
@@ -272,6 +135,9 @@ angular.module('starter')
         console.log("Could not get location");
       });
     };
+
+    //chenter map on current location on page load
+    $scope.centerOnMe();
 
 
   });
