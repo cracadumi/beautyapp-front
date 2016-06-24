@@ -148,8 +148,7 @@ angular.module('starter')
           latitude: pos.coords.latitude,
           longitude: pos.coords.longitude,
           options: {
-            //icon:
-            // 'https://2.bp.blogspot.com/-fQuA-G2XLw8/VX4TFzAtVeI/AAAAAAAAB-w/-MWtUdnzOAw/s1600/BlueDot64.png'
+            icon: '../../img/bluedot32.png'
           }
         });
       }, function(error){
