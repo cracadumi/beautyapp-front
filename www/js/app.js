@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ion-floating-menu', 'jett.ionic.filter.bar', 'starter.services'])
+angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'google.places', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +23,13 @@ angular.module('starter', ['ionic', 'ion-floating-menu', 'jett.ionic.filter.bar'
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
+
+  uiGmapGoogleMapApiProvider.configure({
+    //    key: 'your api key',
+    v: '3.20', //defaults to latest 3.X anyhow
+    libraries: 'weather,geometry,visualization,places'
+  });
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

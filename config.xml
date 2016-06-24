@@ -17,6 +17,9 @@
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
+  <platform name="ios">
+    <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+  </platform>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>

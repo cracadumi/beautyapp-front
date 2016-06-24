@@ -1,25 +1,34 @@
 
-<ion-view>
-  <!--<ion-nav-bar class="bar-royal">
-    <ion-nav-buttons side="left">
-      <label class="item-input item-input-wrapper">
-        <i class="icon ion-ios-search placeholder-icon"></i>
-        <input type="search" placeholder="Search">
-      </label>
+<ion-view hide-nav-bar="true">
 
-    </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-      <button class="button button-clear">
-        Cancel
-      </button>
-      <button class="button button-clear">
-        <i class="icon ion-levels"></i>
-      </button>
-    </ion-nav-buttons>
-  </ion-nav-bar>-->
+  <div class="bar bar-header item-input-inset bar-royal">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" ng-model="location" g-places-autocomplete placeholder="Search by city, zip">
+    </label>
+    <button class="button button-clear">
+      <i class="icon ion-levels"></i>
+    </button>
+  </div>
+  <ion-content class="has-header" scroll="false"  data-tap-disabled="true">
+    <!--<div id="map" data-tap-disabled="true"></div>-->
+    <!--<ui-gmap-google-map center='map.center' zoom='map.zoom' options="mapOptions">
 
-  <ion-content>
-    <div id="map" data-tap-disabled="true"></div>
+      <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+
+    </ui-gmap-google-map>-->
+    <ui-gmap-google-map center="map.center" draggable="true" zoom="map.zoom" options="map.options" events="map.events">
+      <ui-gmap-markers models="map.markers"
+                       doCluster="true"
+                       coords="'self'"
+                       icon="'icon'"
+                       click="'onclicked'"
+                       options="'options'"
+                       idkey='id'
+                       clusterOptions='map.clusterOptions'
+                       control='markerControl.getChildMarkers().get(id)'>
+      </ui-gmap-markers>
+    </ui-gmap-google-map>
   </ion-content>
   <ion-floating-button click="centerOnMe()" has-footer="true" button-color="#886aea" icon="ion-navigate" iconColor="#fff">
   </ion-floating-button>
