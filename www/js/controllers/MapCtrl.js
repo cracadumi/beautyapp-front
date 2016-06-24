@@ -1,3 +1,10 @@
+/**
+ * @ngdoc controller
+ * @name MapCtrl
+ *
+ * @description
+ */
+
 angular.module('starter')
   .controller('MapCtrl', function($q, $rootScope, $scope, $ionicLoading, $compile, uiGmapGoogleMapApi, $http) {
 
@@ -33,6 +40,14 @@ angular.module('starter')
     $scope.$on('$ionicView.beforeEnter', function(e) {
       $rootScope.hideTabs = false;
     });
+
+    //watch locatin changes to center map
+    $scope.$watch('location', function(newVal, oldVal) {
+      if(angular.isObject(newVal)){
+        $scope.updateRequestLocation(newVal);
+      }
+    });
+
 
     function _getCurPosition() {
       var deferred = $q.defer();
@@ -113,9 +128,15 @@ angular.module('starter')
       alert('Example of infowindow with ng-click')
     };
 
-    /**************************************
-     * This button will center the map on user's position
-     * ***********************************/
+    /**
+     * @ngdoc function
+     * @name MapCtrl#centerOnMe
+     *
+     * @description
+     * Centers map on user's current location and adds marker
+     *
+     * @returns {undefined} does not return anything
+     */
     $scope.centerOnMe = function() {
       _getCurPosition().then(function(pos){
         $scope.map.center = {
@@ -134,6 +155,35 @@ angular.module('starter')
       }, function(error){
         console.log("Could not get location");
       });
+    };
+
+    /**
+     * @ngdoc function
+     * @name MapCtrl#updateRequestLocation
+     * @kind function
+     *
+     * @description
+     * Centers map on passed in location and adds marker
+     *
+     * @param {Object} location Location object that contains long and lat
+     *
+     * @returns {undefined} does not return anything
+     */
+    $scope.updateRequestLocation = function(location) {
+      $scope.map.center = {
+        latitude: location.geometry.location.lat(),
+        longitude: location.geometry.location.lng()
+      };
+      $scope.map.markers.push({
+        id: '123',
+        latitude: location.geometry.location.lat(),
+        longitude: location.geometry.location.lng(),
+        options: {
+          //icon:
+          // 'https://2.bp.blogspot.com/-fQuA-G2XLw8/VX4TFzAtVeI/AAAAAAAAB-w/-MWtUdnzOAw/s1600/BlueDot64.png'
+        }
+      });
+      //TODO call api to update request location
     };
 
     //chenter map on current location on page load
