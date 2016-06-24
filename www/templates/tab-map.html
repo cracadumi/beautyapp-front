@@ -17,7 +17,12 @@
       <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
 
     </ui-gmap-google-map>-->
-    <ui-gmap-google-map center="map.center" draggable="true" zoom="map.zoom" options="map.options" events="map.events">
+    <ui-gmap-google-map center="map.center"
+                        draggable="true"
+                        zoom="map.zoom"
+                        options="map.options"
+                        pan="true"
+                        events="map.events">
       <ui-gmap-markers models="map.markers"
                        doCluster="true"
                        coords="'self'"

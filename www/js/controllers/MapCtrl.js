@@ -172,41 +172,18 @@ angular.module('starter')
           "hoofdcat": "70",
           "img": "http://snm-crm.nl/wealert/img/70/ambu_6_thumb.jpg?2u",
           "reactiecount": "0",
-          "likecount": "0",
-          "showWindow": false,
+          "likecount": "1",
+          "showWindow": true,
           "date": "2u",
           "options": {
             "labelContent": "&nbsp;&nbsp;&nbsp;585m<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2u",
             "labelAnchor": "0 0",
             "labelClass": "labelClass",
-            //"animation": 1
+            "animation": google.maps.Animation.DROP
           }
         }
       ];
-      function showMarkers(map){
-        $scope.map.markers = [];
-        $scope.map.markers = [
-          {
-            "id": "50651",
-            "latitude": 51.8477469,
-            "longitude": 4.3141634,
-            "title": "Zorgambulance met spoed naar W. Plokkerstraat in Spijkenisse",
-            "distance": "585m",
-            "hoofdcat": "70",
-            "img": "http://snm-crm.nl/wealert/img/70/ambu_6_thumb.jpg?2u",
-            "reactiecount": "0",
-            "likecount": "0",
-            "showWindow": false,
-            "date": "2u",
-            "options": {
-              "labelContent": "&nbsp;&nbsp;&nbsp;585m<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2u",
-              "labelAnchor": "0 0",
-              "labelClass": "labelClass",
-              "animation": 1
-            }
-          }
-        ]
-      }
+
 
     /*});*/
 
@@ -215,11 +192,11 @@ angular.module('starter')
       $rootScope.hideTabs = false;
     });
 
-    /*function _getCurPosition() {
+    function _getCurPosition() {
       var deferred = $q.defer();
       $ionicLoading.show({showBackdrop: false});
       navigator.geolocation.getCurrentPosition(function(pos) {
-        deferred.resolve(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+        deferred.resolve(pos);
         $ionicLoading.hide();
       }, function(error) {
         console.error('Unable to get location: ' + error.message);
@@ -227,7 +204,6 @@ angular.module('starter')
       });
       return deferred.promise;
     }
-     */
     /*var mapOptions = {
       center: DEFAULT_MAP_LOC,
       zoom: 15,
@@ -270,20 +246,24 @@ angular.module('starter')
       console.log("Could not get location");
     });*/
 
-    /*$scope.clickTest = function() {
+    $scope.clickTest = function() {
       alert('Example of infowindow with ng-click')
     };
 
-    /!**************************************
+    /**************************************
      * This button will center the map on user's position
-     * ***********************************!/
+     * ***********************************/
     $scope.centerOnMe = function() {
-      _getCurPosition().then(function(latLng){
-        $scope.map.panTo(latLng);
+      _getCurPosition().then(function(pos){
+        $scope.map.center = {
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude
+
+        };
       }, function(error){
         console.log("Could not get location");
       });
-    };*/
+    };
 
 
   });
