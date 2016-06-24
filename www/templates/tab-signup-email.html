@@ -1,12 +1,12 @@
 <ion-view hide-nav-bar="true" hide-back-button="false">
-  <ion-content class="sign-up ">
-    <div class="img-block ">
+  <ion-content class="sign-up " >
+    <div class="img-block " >
       <img class="background" src="img/background.jpg">
       <img class="plus" src="img/plus.png">
       <img class="logo" src="img/logo.png">
     </div>
 
-    <form class="sign-up-form list" name="signUpEmail" ng-controller="SignupCtrl"
+    <form class="sign-up-form list"    name="signUpEmail" ng-controller="SignupCtrl"
           autocomplete="off"
           ng-submit="submitForm(signUpEmail.$valid)">
 
@@ -57,7 +57,7 @@
                required>
       </label>
       <label class="item item-input">
-        <span class="input-label">Surename</span>
+        <span class="input-label">Surname</span>
         <input type="text" placeholder="Enter your Surname"
                autocorrect="off"
                autcomplete="off"
@@ -86,7 +86,7 @@
                autcomplete="off"
                autocapitalize="off"
                spellcheck="false"
-               name="email"
+               name="user[email]"
                ng-model="user.email"
                tabindex="1"
                ng-trim="false"
@@ -111,15 +111,15 @@
                data-password-verify="user.password"
                required>
       </label>
-      <label class="item item-input item-select">
-        <div class="input-label">
-          Language<sup>*</sup>
-        </div>
-        <select required>
-          <option></option>
-          <option>English</option>
-          <option>French</option>
-        </select >
+      <!--<label class="item item-input item-select">-->
+        <!--<div class="input-label">-->
+          <!--Language<sup>*</sup>-->
+        <!--</div>-->
+        <!--<select required>-->
+          <!--<option></option>-->
+          <!--<option>English</option>-->
+          <!--<option>French</option>-->
+        <!--</select >-->
       </label>
       <button class="button button-block button-positive activated" type="submit"
               ng-disabled="signUpEmail.$invalid"

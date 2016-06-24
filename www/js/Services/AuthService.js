@@ -6,7 +6,6 @@ angular.module("starter")
   .service("AuthService", [
     "$q",
     "$http",
-    "$localStorage",
     "$ionicLoading",
     "$ionicPopup",
     "CONFIG",
@@ -22,7 +21,7 @@ angular.module("starter")
 
 var register = function (User) {
   return $q(function (resolve, reject) {
-    $http.post(API_URL + "/api/v1/", User).then(function (res) {
+    $http.post(API_URL + "/api/v1/registrations.json", User).then(function (res) {
 
       //storeUser(res.data);
       resolve(res.data);
