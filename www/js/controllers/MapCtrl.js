@@ -258,8 +258,16 @@ angular.module('starter')
         $scope.map.center = {
           latitude: pos.coords.latitude,
           longitude: pos.coords.longitude
-
         };
+        $scope.map.markers.push({
+          id: '123',
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+          options: {
+            //icon:
+            // 'https://2.bp.blogspot.com/-fQuA-G2XLw8/VX4TFzAtVeI/AAAAAAAAB-w/-MWtUdnzOAw/s1600/BlueDot64.png'
+          }
+        });
       }, function(error){
         console.log("Could not get location");
       });
