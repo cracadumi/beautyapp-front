@@ -148,7 +148,7 @@ angular.module('starter')
           latitude: pos.coords.latitude,
           longitude: pos.coords.longitude,
           options: {
-            icon: '../../img/bluedot32.png'
+            icon: './img/bluedot32.png'
           }
         });
       }, function(error){
