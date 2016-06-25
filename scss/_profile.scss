@@ -1,0 +1,123 @@
+.profile-page{
+
+.list.card{
+  //.top-content{
+  //  padding-left:10px!important;
+  //  background:red;
+  //}
+  margin:0 0 0 0;
+  .item-avatar{
+    background:#512aa1;
+    padding:0px 10px 10px  ;
+    padding-left:10px!important;
+    text-align: center;
+    & > img{
+      position: relative;
+      min-height:132px;
+      min-width:132px;
+      left:0;
+      top:20px;
+      border-radius:50%;
+      border:4px solid $purple;
+      margin-bottom: 25px;
+    }
+    h2{
+      color:#fff;
+      font-size:25px;
+    }
+    p{
+      color: darken( $white, 7% );
+      padding:0 0 20px;
+    }
+    .ion-gear-a{
+      color:$white;
+      position: Absolute;
+      top:8px;
+      right:10px!important;
+      &:before{
+        font-size: 28px;
+      }
+    }
+  }
+  h2{
+    padding:0 10px;
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+  .item.item-body{
+    padding:0;
+    p{
+      padding:0 10px;
+    }
+    .list.list-photo{
+background-color: lighten( $purple, 10%);
+      overflow:hidden;
+      margin-bottom:0;
+      padding:0 0 5px;
+      a{
+        //margin-bottom: 4px;
+        padding:10px 0px 10px 10px;
+        background:transparent;
+        display:inline-block;
+        width:25vw;
+        height:25vw;
+        border-bottom: 0;
+        img{
+          width:100%;
+        }
+        &.add-photo{
+         border-radius:10px;
+          border:3px dashed #fff;
+          width:calc(25vw - 10px);
+          height:calc(25vw - 10px);
+          margin:0 0 0 10px;
+          text-align:center;
+          padding:12px 0;
+          line-height:18px;
+          font-size:15px;
+          text-transform:uppercase ;
+          white-space: normal;
+          color:darken($white, 10%)
+        }
+      }
+    }
+    .list-reviews{
+      .item-thumbnail-left{
+        max-height:100px;
+        padding-left: 100px;
+        border-top:1px solid #818090;
+        .rate{
+          position:Absolute;
+          top:7px;
+          right:10px;
+          .ion-ios-star{
+            display:inline-block;
+            margin-right: -3px;
+            &:before{
+              font-size:12px!important;
+              color:$purple;
+            }
+          }
+        }
+        > img:first-child{
+          max-width:100px;
+          max-height:100px;
+          left:0;
+          top:0;
+        }
+        h2{
+          margin-top:0;
+          margin-bottom:2px;
+        }
+        p{
+          margin-top:0;
+          word-spacing: -1px;
+          font-size: 12px;
+        }
+      }
+
+    }
+  }
+
+}
+}
