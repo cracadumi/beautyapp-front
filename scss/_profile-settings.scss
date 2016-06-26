@@ -1,0 +1,30 @@
+.profile-settings{
+  //background-color:Red;
+  .list{
+.profile-picture{
+  padding:7px 7px 0 7px;
+  background:#fff;
+  text-align:center;
+  position:absolute;
+  z-index:3;
+  top:1px;
+  right:0px;
+  img{
+    border-radius: 50%;
+    max-width:70px;
+    max-height:70px;
+
+  }
+}
+
+    .item{
+      .icon{
+        &:before{
+          color:#b3b3b3;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  }
+

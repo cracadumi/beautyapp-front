@@ -163,7 +163,17 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
+    .state('tab.profile-settings', {
+    url: '/profile-settings',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-profile-settings.html',
+        controller: 'AccountCtrl'
+      }
+    }
+  })
+  ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/profile');

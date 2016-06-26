@@ -7,7 +7,14 @@
   //}
   margin:0 0 0 0;
   .item-avatar{
-    background:#512aa1;
+    //background:#512aa1;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6132c2+0,582daf+17,381d6f+71,2b1756+100 */
+    background: #6132c2; /* Old browsers */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6132c2+0,582daf+17,381d6f+66,2b1756+100 */
+    background: #6132c2; /* Old browsers */
+    background: -moz-linear-gradient(top,  #6132c2 0%, #582daf 17%, #381d6f 66%, #2b1756 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #6132c2 0%,#582daf 17%,#381d6f 66%,#2b1756 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #6132c2 0%,#582daf 17%,#381d6f 66%,#2b1756 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     padding:0px 10px 10px  ;
     padding-left:10px!important;
     text-align: center;
