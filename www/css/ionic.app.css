@@ -19625,10 +19625,40 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.button-positive {
+  background-color: #3b579d !important; }
+
+.button-royal {
+  background-color: #6735ce !important; }
+
+ion-header-bar {
+  background: #6735ce; }
+
+[nav-bar-transition="ios"] [nav-bar="active"] .bar,
+[nav-bar-transition="ios"] [nav-bar="entering"] .bar {
+  background: #6735ce; }
+
+.bar.bar-stable .title {
+  color: #fff; }
+
+.bar.bar-stable .button.back-button {
+  color: #fff; }
+
+.bar-stable .button.button-transparent {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font: bold 16px arial; }
+
+.button.back-button {
+  color: #fff; }
+
 .sign-up {
   width: 100%;
   height: 100%;
   position: relative; }
+  .sign-up .sign-up-form {
+    margin-top: 10px; }
   .sign-up .background {
     width: 100vw;
     left: 0;
@@ -19637,19 +19667,26 @@ a.button {
     bottom: 0;
     position: absolute;
     z-index: 0; }
+  .sign-up .button-block {
+    margin: 0; }
   .sign-up .plus {
     width: 100vw;
     position: relative;
     z-index: 3;
     margin-top: 28px;
     margin-bottom: 17px; }
+  .sign-up .bottom-buttons {
+    color: #fff; }
   .sign-up .logo {
     text-align: center;
-    width: 33.3%;
-    margin-left: 33.3%;
+    width: 25%;
+    margin-left: 37.5%;
     margin-bottom: 15vw;
     position: relative;
     z-index: 2; }
+    .sign-up .logo.logo-up {
+      position: Absolute;
+      top: 35px; }
   .sign-up .bottom-content {
     padding: 0 20px;
     position: relative; }
@@ -19829,31 +19866,3 @@ a.button {
   font-size: 20px; }
   .profile-settings .payments-cards .add-card .ion-plus-circled:before {
     color: #6735ce; }
-
-.button-positive {
-  background-color: #3b579d !important; }
-
-.button-royal {
-  background-color: #6735ce !important; }
-
-ion-header-bar {
-  background: #6735ce; }
-
-[nav-bar-transition="ios"] [nav-bar="active"] .bar,
-[nav-bar-transition="ios"] [nav-bar="entering"] .bar {
-  background: #6735ce; }
-
-.bar.bar-stable .title {
-  color: #fff; }
-
-.bar.bar-stable .button.back-button {
-  color: #fff; }
-
-.bar-stable .button.button-transparent {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font: bold 16px arial; }
-
-.button.back-button {
-  color: #fff; }

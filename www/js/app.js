@@ -204,6 +204,6 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/profile');
+  $urlRouterProvider.otherwise('/tab/signup');
 
 });
