@@ -19810,8 +19810,50 @@ a.button {
   color: #b3b3b3;
   font-size: 30px; }
 
+.profile-settings .change-password .item input {
+  padding: 0 15px 0 7px; }
+
+.profile-settings .payments-cards .item span {
+  font-size: 32px;
+  height: 12px;
+  display: inline-block;
+  line-height: 5px;
+  vertical-align: middle; }
+
+.profile-settings .payments-cards .item .ion-checkmark:before {
+  font-size: 20px;
+  color: #147dfa; }
+
+.profile-settings .payments-cards .add-card {
+  color: #6735ce;
+  font-size: 20px; }
+  .profile-settings .payments-cards .add-card .ion-plus-circled:before {
+    color: #6735ce; }
+
 .button-positive {
   background-color: #3b579d !important; }
 
 .button-royal {
   background-color: #6735ce !important; }
+
+ion-header-bar {
+  background: #6735ce; }
+
+[nav-bar-transition="ios"] [nav-bar="active"] .bar,
+[nav-bar-transition="ios"] [nav-bar="entering"] .bar {
+  background: #6735ce; }
+
+.bar.bar-stable .title {
+  color: #fff; }
+
+.bar.bar-stable .button.back-button {
+  color: #fff; }
+
+.bar-stable .button.button-transparent {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font: bold 16px arial; }
+
+.button.back-button {
+  color: #fff; }

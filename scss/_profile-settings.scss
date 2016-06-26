@@ -26,5 +26,39 @@
       }
     }
   }
+  .change-password{
+    .item{
+      input{
+        padding:0 15px 0 7px;
+      }
+    }
+  }
+  .payments-cards{
+    .item{
+        span{
+          font-size: 32px;
+          height: 12px;
+          display: inline-block;
+          line-height: 5px;
+          vertical-align: middle;
+      }
+      .ion-checkmark{
+       &:before{
+         font-size: 20px;
+         color:$blue;
+       }
+      }
+    }
+    .add-card{
+      color:$purple;
+      font-size:20px;
+      .ion-plus-circled{
+        &:before{
+          color:$purple;
+        }
+      }
+    }
+  }
+
   }
 
