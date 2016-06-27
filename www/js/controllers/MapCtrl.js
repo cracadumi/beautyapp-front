@@ -80,7 +80,7 @@ angular.module('starter')
       fd.append('user[name]','3Name');
       fd.append('user[surname]','3Surname');
       fd.append('user[username]','3sulyanoff3');
-      $http.post('http://beautyapp.herokuapp.com/api/v1/registrations.json', fd, {
+      $http.post('https://beautyapp.herokuapp.com/api/v1/registrations.json', fd, {
         //transformRequest: angular.identity,
         headers: {'Content-Type': undefined}
       })
@@ -89,8 +89,40 @@ angular.module('starter')
         })
         .error(function(e){
           console.log(e);
-        });
-*/
+        });*/
+
+      /*var fd = new FormData();
+      fd.append('grant_type','password');
+      fd.append('password','31q2w3e4r');
+      fd.append('username','3em3@il.ru');
+      $http.post('https://beautyapp.herokuapp.com/api/v1/oauth/token', fd, {
+        //transformRequest: angular.identity,
+        headers: {'Content-Type': undefined}
+      })
+        .success(function(data){
+          console.log(data);
+        })
+        .error(function(e){
+          console.log(e);
+        });*/
+
+        //TODO testing canopeez app REMOVE WHEN done
+       /*var fd = new FormData();
+       fd.append('password','331q2w3e4r');
+       fd.append('email','33em3@il.ru');
+       fd.append('name','33Name');
+       fd.append('surname','33Surname');
+       $http.post('https://canopeez.herokuapp.com/api/v1/users', fd, {
+       //transformRequest: angular.identity,
+       headers: {'Content-Type': undefined}
+       })
+       .success(function(data){
+       console.log(data);
+       })
+       .error(function(e){
+       console.log(e);
+       });*/
+
       return deferred.promise;
     }
     /*var mapOptions = {
