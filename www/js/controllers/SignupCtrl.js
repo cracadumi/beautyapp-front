@@ -48,7 +48,6 @@ angular.module('starter')
                     $state.go("tab.map");
                   }
                 }
-
               ]
             });
           })
