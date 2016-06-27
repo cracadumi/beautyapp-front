@@ -1,24 +1,104 @@
 
 .angular-google-map {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
 .angular-google-map-container {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
-.infobox .card{
+.infobox .card {
   //background: #f9f9f9;
   //border: 2px solid #d9d9d9;
   //width: 350px !important;
   //top: 15px !important; // move the infowindow 15px down
   //left: 0 !important;
   margin: 0;
-  width: 200px;
+  width: 240px;
+  border-radius:5px;
 }
 
 .infobox img {
   display: none;
+}
+
+.map-marker {
+  .item-divider{
+font-size:20px;
+  }
+  .item {
+    background: $purple;
+    color: $white;
+    border-bottom: 0;
+    border-top: 0;
+    &.item-icon-left {
+      padding: 8px 0 8px 40px;
+      line-height: 35px;
+      .icon {
+        left: 5px;
+        &.on-line {
+          color: $green;
+        }
+      }
+    }
+
+    .icon {
+      &:before {
+        font-size: 16px;
+      }
+    }
+    .full-stars,.hollow-stars{
+      .icon{
+        &:before{
+          font-size:20px;
+        }
+      }
+    }
+    .hollow-stars {
+      position: absolute;
+      .icon{
+        color: $star-hollow-color;
+      }
+    }
+    .full-stars {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      .icon {
+        color: $star-gold-color;
+      }
+    }
+  }
+  .item-buttons{
+    padding:0;
+    font-size:24px;
+    .item-button{
+      font-size:16px;
+     .icon{
+       &:before{
+         font-size:24px;
+       }
+
+     }
+      &:first-child{
+        border-top:1px solid darken($purple, 10%);
+      }
+      &:nth-child(2){
+        background:darken($purple, 30%);
+      }
+    }
+
+  }
+
+  .item-text-wrap {
+    padding: 0 0 15px 13px;
+
+    .reviews{
+      margin: 0 0 0 50px;
+      font-size:14px;
+    }
+
+  }
 }

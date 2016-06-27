@@ -1,17 +1,37 @@
-<div class="card" ng-controller="MapMarkerCtrl">
+<div class="card map-marker" ng-controller="MapMarkerCtrl">
     <!--<a ui-sref="foo({fooId: parameter.id})">-->
       <!--{{parameter.name}}</a>
       <h3>Carlos Nochito</h3>
       ***** 34 reviews <br>
       45 min Book next appt >-->
-    <div class="item item-divider">
+    <div class="item item-divider item-icon-left">
+      <i class="icon ion-record on-line"></i>
       Carlos Nochito
     </div>
     <div class="item item-text-wrap">
-      ***** 34 reviews
+      <div class="hollow-stars">
+        <i class="icon ion-ios-star"></i>
+        <i class="icon ion-ios-star"></i>
+        <i class="icon ion-ios-star"></i>
+        <i class="icon ion-ios-star"></i>
+        <i class="icon ion-ios-star"></i>
+      </div>
+      <div class="full-stars">
+        <i class="icon ion-ios-star"></i>
+        <i class="icon ion-ios-star"></i>
+        <i class="icon ion-ios-star"></i>
+      </div>
+     <span class="pull-right reviews">34 reviews</span>
     </div>
-  <a class="item item-icon-left" href="#">
-    <i class="icon ion-ios-timer-outline"></i>
-    45m
-  </a>
+  <div class="row item-buttons">
+    <a class="item item-icon-left item-button col-33" href="#">
+      <i class="icon ion-ios-timer-outline"></i>
+      45m
+    </a>
+    <a class="item item-button item-icon-right col-66">
+      Book next app
+      <i class="icon  ion-ios-arrow-forward"></i>
+    </a>
+  </div>
+
 </div>
