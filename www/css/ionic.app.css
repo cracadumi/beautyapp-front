@@ -19625,43 +19625,10 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.button-positive {
-  background-color: #3b579d !important; }
-
-.button-royal {
-  background-color: #6735ce !important; }
-
-ion-header-bar {
-  background: #6735ce; }
-
-[nav-bar-transition="ios"] [nav-bar="active"] .bar,
-[nav-bar-transition="ios"] [nav-bar="entering"] .bar {
-  background: #6735ce; }
-
-.bar.bar-stable .title {
-  color: #fff; }
-
-.bar.bar-stable .button.back-button {
-  color: #fff; }
-
-.bar-stable .button.button-transparent {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font: bold 16px arial; }
-
-.button.back-button {
-  color: #fff; }
-
-.popup {
-  text-align: center; }
-
 .sign-up {
   width: 100%;
   height: 100%;
   position: relative; }
-  .sign-up .sign-up-form {
-    margin-top: 10px; }
   .sign-up .background {
     width: 100vw;
     left: 0;
@@ -19670,26 +19637,19 @@ ion-header-bar {
     bottom: 0;
     position: absolute;
     z-index: 0; }
-  .sign-up .button-block {
-    margin: 0; }
   .sign-up .plus {
     width: 100vw;
     position: relative;
     z-index: 3;
     margin-top: 28px;
     margin-bottom: 17px; }
-  .sign-up .bottom-buttons {
-    color: #fff; }
   .sign-up .logo {
     text-align: center;
-    width: 25%;
-    margin-left: 37.5%;
+    width: 33.3%;
+    margin-left: 33.3%;
     margin-bottom: 15vw;
     position: relative;
     z-index: 2; }
-    .sign-up .logo.logo-up {
-      position: Absolute;
-      top: 35px; }
   .sign-up .bottom-content {
     padding: 0 20px;
     position: relative; }
@@ -19731,141 +19691,16 @@ ion-header-bar {
   width: 100%;
   height: 100%; }
 
-.profile-page .list.card {
-  margin: 0 0 0 0; }
-  .profile-page .list.card .item-avatar {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6132c2+0,582daf+17,381d6f+71,2b1756+100 */
-    background: #6132c2;
-    /* Old browsers */
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6132c2+0,582daf+17,381d6f+66,2b1756+100 */
-    background: #6132c2;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #6132c2 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #6132c2 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #6132c2 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    padding: 0px 10px 10px;
-    padding-left: 10px !important;
-    text-align: center; }
-    .profile-page .list.card .item-avatar > img {
-      position: relative;
-      min-height: 132px;
-      min-width: 132px;
-      left: 0;
-      top: 20px;
-      border-radius: 50%;
-      border: 4px solid #6735ce;
-      margin-bottom: 25px; }
-    .profile-page .list.card .item-avatar h2 {
-      color: #fff;
-      font-size: 25px; }
-    .profile-page .list.card .item-avatar p {
-      color: #ededed;
-      padding: 0 0 20px; }
-    .profile-page .list.card .item-avatar .ion-gear-a {
-      color: #fff;
-      position: Absolute;
-      top: 8px;
-      right: 10px !important; }
-      .profile-page .list.card .item-avatar .ion-gear-a:before {
-        font-size: 28px; }
-  .profile-page .list.card h2 {
-    padding: 0 10px;
-    margin-top: 10px;
-    margin-bottom: 10px; }
-  .profile-page .list.card .item.item-body {
-    padding: 0; }
-    .profile-page .list.card .item.item-body p {
-      padding: 0 10px; }
-    .profile-page .list.card .item.item-body .list.list-photo {
-      background-color: #865ed8;
-      overflow: hidden;
-      margin-bottom: 0;
-      padding: 0 0 5px; }
-      .profile-page .list.card .item.item-body .list.list-photo a {
-        padding: 10px 0px 10px 10px;
-        background: transparent;
-        display: inline-block;
-        width: 25vw;
-        height: 25vw;
-        border-bottom: 0; }
-        .profile-page .list.card .item.item-body .list.list-photo a img {
-          width: 100%; }
-        .profile-page .list.card .item.item-body .list.list-photo a.add-photo {
-          border-radius: 10px;
-          border: 3px dashed #fff;
-          width: calc(25vw - 10px);
-          height: calc(25vw - 10px);
-          margin: 0 0 0 10px;
-          text-align: center;
-          padding: 12px 0;
-          line-height: 18px;
-          font-size: 15px;
-          text-transform: uppercase;
-          white-space: normal;
-          color: #e6e6e6; }
-    .profile-page .list.card .item.item-body .list-reviews .item-thumbnail-left {
-      max-height: 100px;
-      padding-left: 100px;
-      border-top: 1px solid #818090; }
-      .profile-page .list.card .item.item-body .list-reviews .item-thumbnail-left .rate {
-        position: Absolute;
-        top: 7px;
-        right: 10px; }
-        .profile-page .list.card .item.item-body .list-reviews .item-thumbnail-left .rate .ion-ios-star {
-          display: inline-block;
-          margin-right: -3px; }
-          .profile-page .list.card .item.item-body .list-reviews .item-thumbnail-left .rate .ion-ios-star:before {
-            font-size: 12px !important;
-            color: #6735ce; }
-      .profile-page .list.card .item.item-body .list-reviews .item-thumbnail-left > img:first-child {
-        max-width: 100px;
-        max-height: 100px;
-        left: 0;
-        top: 0; }
-      .profile-page .list.card .item.item-body .list-reviews .item-thumbnail-left h2 {
-        margin-top: 0;
-        margin-bottom: 2px; }
-      .profile-page .list.card .item.item-body .list-reviews .item-thumbnail-left p {
-        margin-top: 0;
-        word-spacing: -1px;
-        font-size: 12px; }
+.infobox .card {
+  margin: 0;
+  width: 200px;
+  top: 100px; }
 
-.profile-settings .list .profile-picture {
-  padding: 7px 7px 0 7px;
-  background: #fff;
-  text-align: center;
-  position: absolute;
-  z-index: 3;
-  top: 1px;
-  right: 0px; }
-  .profile-settings .list .profile-picture img {
-    border-radius: 50%;
-    max-width: 70px;
-    max-height: 70px; }
+.infobox img {
+  display: none; }
 
-.profile-settings .list .item .icon:before {
-  color: #b3b3b3;
-  font-size: 30px; }
+.button-positive {
+  background-color: #3b579d !important; }
 
-.profile-settings .change-password .item input {
-  padding: 0 15px 0 7px; }
-
-.profile-settings .payments-cards .item span {
-  font-size: 32px;
-  height: 12px;
-  display: inline-block;
-  line-height: 5px;
-  vertical-align: middle; }
-
-.profile-settings .payments-cards .item .ion-checkmark:before {
-  font-size: 20px;
-  color: #147dfa; }
-
-.profile-settings .payments-cards .add-card {
-  color: #6735ce;
-  font-size: 20px; }
-  .profile-settings .payments-cards .add-card .ion-plus-circled:before {
-    color: #6735ce; }
+.button-royal {
+  background-color: #6735ce !important; }

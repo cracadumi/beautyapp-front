@@ -8,3 +8,17 @@
   width:100%;
   height:100%;
 }
+
+.infobox .card{
+  //background: #f9f9f9;
+  //border: 2px solid #d9d9d9;
+  //width: 350px !important;
+  //top: 15px !important; // move the infowindow 15px down
+  //left: 0 !important;
+  margin: 0;
+  width: 200px;
+}
+
+.infobox img {
+  display: none;
+}

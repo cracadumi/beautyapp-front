@@ -5,60 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-
-angular.module('starter', [], function ($httpProvider)
-{
-
-  $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-
-  $httpProvider.defaults.transformRequest = [function (data)
-  {
-    /**
-     * рабочая лошадка; преобразует объект в x-www-form-urlencoded строку.
-     * @param {Object} obj
-     * @return {String}
-     */
-    var param = function (obj)
-    {
-      var query = '';
-      var name, value, fullSubName, subValue, innerObj, i;
-      for (name in obj)
-      {
-        value = obj[name];
-        if (value instanceof Array)
-        {
-          for (i = 0; i < value.length; ++i)
-          {
-            subValue = value[i];
-            fullSubName = name + '[' + i + ']';
-            innerObj = {};
-            innerObj[fullSubName] = subValue;
-            query += param(innerObj) + '&';
-          }
-        }
-        else if (value instanceof Object)
-        {
-          for (subName in value)
-          {
-            subValue = value[subName];
-            fullSubName = name + '[' + subName + ']';
-            innerObj = {};
-            innerObj[fullSubName] = subValue;
-            query += param(innerObj) + '&';
-          }
-        }
-        else if (value !== undefined && value !== null)
-        {
-          query += encodeURIComponent(name) + '=' + encodeURIComponent(value) + '&';
-        }
-      }
-
-      return query.length ? query.substr(0, query.length - 1) : query;
-    };
-    return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
-  }];
-})
-
 angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'google.places', 'starter.services'])
 
 .run(function($ionicPlatform) {
@@ -204,6 +150,6 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/signup');
+  $urlRouterProvider.otherwise('/tab/signin');
 
 });

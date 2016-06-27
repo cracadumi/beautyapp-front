@@ -17,8 +17,13 @@
       <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
 
     </ui-gmap-google-map>-->
-    <ui-gmap-google-map center="map.center" draggable="true" zoom="map.zoom" options="map.options" events="map.events">
-      <ui-gmap-markers models="map.markers"
+    <ui-gmap-google-map center="map.center"
+                        draggable="true"
+                        zoom="map.zoom"
+                        options="map.options"
+                        pan="true"
+                        events="map.events">
+      <!--<ui-gmap-markers models="map.markers"
                        doCluster="true"
                        coords="'self'"
                        icon="'icon'"
@@ -27,7 +32,20 @@
                        idkey='id'
                        clusterOptions='map.clusterOptions'
                        control='markerControl.getChildMarkers().get(id)'>
-      </ui-gmap-markers>
+      </ui-gmap-markers>-->
+      <ui-gmap-marker ng-repeat="marker in map.markers"
+                      idKey="marker.id"
+                      coords="marker.coords"
+                      options="marker.options"
+                      click="markerClick(marker)">
+        <ui-gmap-window show="marker.show"
+                        options="map.windowOptions"
+                        closeClick="markerClose(marker)"
+                        templateUrl="map.windowTemplate"
+                        templateParameter="map.windowParameter(marker)"
+                        ng-cloak="ng-cloak">
+        </ui-gmap-window>
+      </ui-gmap-marker>
     </ui-gmap-google-map>
   </ion-content>
   <ion-floating-button click="centerOnMe()" has-footer="true" button-color="#886aea" icon="ion-navigate" iconColor="#fff">
