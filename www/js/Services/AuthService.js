@@ -19,9 +19,10 @@ angular.module("starter")
 
       var API_URL = CONFIG.API_BASE;
 
-      var register = function (User) {
-        return $q(function (resolve, reject) {
-          $http.post(API_URL + "/api/v1/", User).then(function (res) {
+
+var register = function (User) {
+  return $q(function (resolve, reject) {
+    $http.post(API_URL + "/api/v1/registrations.json", User).then(function (res) {
 
             //storeUser(res.data);
             resolve(res.data);

@@ -101,17 +101,55 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.profile', {
+    url: '/profile',
     views: {
       'tab-account': {
-        templateUrl: 'templates/tab-account.html',
+        templateUrl: 'templates/tab-profile.html',
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
+    .state('tab.profile-settings', {
+    url: '/profile-settings',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-profile-settings.html',
+        controller: 'AccountCtrl'
+      }
+    }
+  })
+    .state('tab.profile-settings-change-password', {
+      url: '/profile-settings-change-password',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-profile-settings-change-password.html',
+          controller: 'AccountCtrl'
+        }
+      }
+    })
+
+    .state('tab.profile-settings-payments', {
+      url: '/profile-settings-payments',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-profile-settings-payments.html',
+          controller: 'AccountCtrl'
+        }
+      }
+    })
+    .state('tab.profile-settings-addcard', {
+      url: '/profile-settings-addcard',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-profile-settings-addcard.html',
+          controller: 'AccountCtrl'
+        }
+      }
+    })
+  ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/map');
+  $urlRouterProvider.otherwise('/tab/signin');
 
 });

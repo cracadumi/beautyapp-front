@@ -37,11 +37,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 @import "www/lib/ionic/scss/ionic";
-@import "scss/_sign";
 @import "scss/variables/_colors";
+@import "scss/_global_style";
+@import "scss/_sign";
+
 @import "scss/map";
 //@import "scss/_fonts";
 //@import "scss/_login";
-//@import "scss/_profile";
+@import "scss/_profile";
+@import "scss/_profile-settings";
 //@import "scss/_sidemenu";
-@import "scss/_global_style";
+
