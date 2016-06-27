@@ -19653,6 +19653,9 @@ ion-header-bar {
 .button.back-button {
   color: #fff; }
 
+.popup {
+  text-align: center; }
+
 .sign-up {
   width: 100%;
   height: 100%;

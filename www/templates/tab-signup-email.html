@@ -78,6 +78,7 @@
                name="username"
                ng-model="user.username"
                tabindex="3"
+               value="@"
                requred>
       </label>
       <label class="item item-input">
@@ -123,11 +124,12 @@
       </label>
       <button class="button button-block button-royal activated" type="submit"
               ng-disabled="signUpEmail.$invalid"
-              tabindex="5">Sign in
+              tabindex="5"
+              required>Sign in
       </button>
       <div class="row bottom-buttons">
         <div class="col ">Forgot password?</div>
-        <div class="col text-right">Create account</div>
+        <div class="col text-right" ng-click="goToLoginPage()">Already have an account</div>
       </div>
     </form>
   </ion-content>
