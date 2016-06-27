@@ -13,25 +13,36 @@ angular.module('starter')
 
 
     $scope.map = {
-      "center": {
-        "latitude": 51.844943699999995,
-        "longitude": 4.3069723
+      windowTemplate: "templates/marker-template.html",
+      windowParameter: function(marker){
+        return marker;
       },
-      "options": {
-        "zoomControl": false,
-        "minZoom": 13,
-        "maxZoom": 20,
-        "mapTypeControl": false,
-        "streetViewControl": false,
-        "draggable": true,
-        "panControl": false,
-        "optimized": true,
-        "mapTypeId": "roadmap",
-        "styles": [
+      windowOptions: {
+        boxClass: "infobox"
+        /*boxStyle: {
+          backgroundColor: "#f9f9f9",
+          border: "2px solid d9d9d9"
+        }*/
+      },
+      center: {
+        latitude: 51.844943699999995,
+        longitude: 4.3069723
+      },
+      options: {
+        zoomControl: false,
+        minZoom: 13,
+        maxZoom: 20,
+        mapTypeControl: false,
+        streetViewControl: false,
+        draggable: true,
+        panControl: false,
+        optimized: true,
+        mapTypeId: "roadmap",
+        styles: [
         ]
       },
-      "zoom": 13,
-      "events": {}
+      zoom: 13,
+      events: {}
     };
 
      $scope.map.markers = [];
@@ -145,8 +156,13 @@ angular.module('starter')
         };
         $scope.map.markers.push({
           id: '123',
+          show: true,
           latitude: pos.coords.latitude,
           longitude: pos.coords.longitude,
+          coords: {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude
+          },
           options: {
             icon: './img/bluedot32.png'
           }
@@ -175,8 +191,13 @@ angular.module('starter')
       };
       $scope.map.markers.push({
         id: '123',
+        show: true,
         latitude: location.geometry.location.lat(),
         longitude: location.geometry.location.lng(),
+        coords: {
+          latitude: location.geometry.location.lat(),
+          longitude: location.geometry.location.lng()
+        },
         options: {
           //icon:
           // 'https://2.bp.blogspot.com/-fQuA-G2XLw8/VX4TFzAtVeI/AAAAAAAAB-w/-MWtUdnzOAw/s1600/BlueDot64.png'
@@ -188,5 +209,19 @@ angular.module('starter')
     //chenter map on current location on page load
     $scope.centerOnMe();
 
+    $scope.markerClick = function(marker) {
+      if(marker.show) {
+        marker.show = false;
+      } else {
+        _.forEach($scope.markers, function(curMarker) {
+          curMarker.show = false;
+        });
+        marker.show = true;
+      }
+    };
+
+    $scope.markerClose = function(marker) {
+      marker.show = false;
+    };
 
   });
