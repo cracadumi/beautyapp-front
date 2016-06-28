@@ -1,20 +1,20 @@
 <ion-view view-title="Payments" hide-back-button="false" hide-nav-bar="">
   <ion-content class="profile-settings">
   <div class="list payments-cards card">
+    <ion-list >
 
+    <ion-radio class="item item-icon-left item-icon-right"  ng-change="updateGrossOptions(item)" ng-model="payments.name" ng-value="master_card" ng-click="togglePaymentsMethod('master_card')">
+      <i class="icon ion-card master-card"></i>
+      Personal&#32;&#32;<span>&#183;&#183;&#183;&#183;</span>&#32;3388
+      <!--<i class="icon ion-checkmark"></i>-->
+    </ion-radio>
 
-    <a class="item item-icon-left item-icon-right" >
-      <i class="icon ion-card"></i>
-      Personal <span>&#183;&#183;&#183;&#183;</span>&#32;3388
-      <i class="icon ion-checkmark"></i>
-    </a>
+    <ion-radio class="item item-icon-left item-icon-right" ng-change="updateGrossOptions(item)" ng-model="payments.name" ng-value="visa" ng-click="togglePaymentsMethod('visa')">
+      <i class="icon ion-card visa"></i>
+      Personal&#32;&#32;<span>&#183;&#183;&#183;&#183;</span>&#32;9378
+    </ion-radio>
 
-    <a class="item item-icon-left" >
-      <i class="icon ion-card"></i>
-      Personal <span>&#183;&#183;&#183;&#183;</span>&#32;9378
-    </a>
-
-
+    </ion-list>
   </div>
     <div class="list payments-cards card">
 
