@@ -52,8 +52,25 @@ var register = function (User) {
           });
         });
       }
+      var signOut = function(access_token){
+        return $q(function (resolve, reject) {
+          $http.post(API_URL + "/oauth/revoke",{headers: {'Authorization':  'Bearer' + access_token}}).then(function (res) {
+            //{headers: {'Authorization':  'Bearer' + access_token}}
+            //storeUser(res.data);
+            resolve(res.data);
+          }, function (error) {
+            console.log("*** error : " + angular.toJson(error));
+            var msg;
+            if (error.data && error.data.code === "ConflictError") {
+              msg = "duplicate";
+            }
+            reject(msg);
+          });
+        });
+      }
       return {
         register: register,
-        showUser:showUser
+        showUser:showUser,
+        signOut:signOut,
       }
     }]);

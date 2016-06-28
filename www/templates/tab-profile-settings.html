@@ -1,38 +1,45 @@
 <ion-view view-title="Settings" hide-back-button="false">
+  <ion-nav-buttons side="right" ng-if="openField" >
+    <button class="button button-transparent " ng-click="saveData()">
+      Save
+    </button>
+  </ion-nav-buttons>
   <ion-content class="profile-settings">
 
     <div class="item item-divider">
       Profile
     </div>
     <div class="list">
-        <a class="item item-icon-left" href="#">
+        <a class="item item-icon-left" >
           <i class="icon ion-person"></i>
-          Veronica Abandonato
+          {{user.name}} {{user.surname}}
 
         </a>
           <div class="profile-picture">
             <img src="img/avatar2.jpg">
             <div>Edit</div>
           </div>
-        <a class="item item-icon-left " href="#">
+        <a class="item item-icon-left " >
           <i class="icon ion-at"></i>
-          Vabando
+          {{user.username}}
 
         </a>
 
-        <a class="item item-icon-left" href="#">
+        <a class="item item-icon-left" ng-click="openField = !openField">
           <i class="icon ion-compose"></i>
           Bio
     <!--<span class="item-note">-->
       <!--Grammy-->
     <!--</span>-->
+
         </a>
+      <textarea rows="5" ng-if="openField"></textarea>
         <div class="item item-divider">
           Account
         </div>
-        <a class="item item-icon-left" href="#">
+        <a class="item item-icon-left" >
           <i class="icon ion-email"></i>
-          guillermo@silverbackmiami.com
+          {{user.email}}
         </a>
 
         <a class="item item-icon-left item-icon-right" ng-click="openSettingsPayments()">
@@ -50,27 +57,27 @@
       <div class="item item-divider">
         Support
       </div>
-      <a class="item item-icon-right" href="#">
+      <a class="item item-icon-right" >
       Help
       <i class="icon  ion-ios-arrow-forward"></i>
     </a>
-      <a class="item item-icon-right" href="#">
+      <a class="item item-icon-right" >
       About This Version
       <i class="icon  ion-ios-arrow-forward"></i>
     </a>
-      <a class="item item-icon-right" href="#">
+      <a class="item item-icon-right" >
        Privacy Policy
         <i class="icon  ion-ios-arrow-forward"></i>
       </a>
-      <a class="item item-icon-right" href="#">
+      <a class="item item-icon-right" >
        Terms of Service
         <i class="icon  ion-ios-arrow-forward"></i>
       </a>
       <div class="item item-divider">
 
       </div>
-      <a class="item item-icon-right" href="#">
-        Plus Blog
+      <a class="item item-icon-right" ng-click="signOut()">
+        Sign out
         <i class="icon  ion-ios-arrow-forward"></i>
       </a>
     </div>
