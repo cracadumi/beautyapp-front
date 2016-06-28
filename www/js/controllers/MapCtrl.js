@@ -195,7 +195,7 @@ angular.module('starter')
         longitude: location.geometry.location.lng()
       };
       $scope.map.markers.push({
-        id: '123',
+        id: '12323456',
         show: true,
         coords: {
           latitude: location.geometry.location.lat(),
