@@ -17,20 +17,13 @@ angular.module('starter')
       windowParameter: function(marker){
         return marker;
       },
-      windowOptions: {
-        boxClass: "infobox"
-        /*boxStyle: {
-          backgroundColor: "#f9f9f9",
-          border: "2px solid d9d9d9"
-        }*/
-      },
       center: {
         latitude: 51.844943699999995,
         longitude: 4.3069723
       },
       options: {
         zoomControl: false,
-        minZoom: 13,
+        minZoom: 5,
         maxZoom: 20,
         mapTypeControl: false,
         streetViewControl: false,
@@ -108,47 +101,6 @@ angular.module('starter')
 
       return deferred.promise;
     }
-    /*var mapOptions = {
-      center: DEFAULT_MAP_LOC,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: false,
-      zoomControl: false,
-      scaleControl: false,
-      streetViewControl: false
-    };*/
-
-    //$scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-    /*_getCurPosition().then(function(latLng){
-
-
-      //Wait until the map is loaded
-      //google.maps.event.addListenerOnce($scope.map, 'idle', function(){
-
-        var marker = new google.maps.Marker({
-          map: $scope.map,
-          animation: google.maps.Animation.DROP,
-          position: latLng
-        });
-
-      var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-      var compiled = $compile(contentString)($scope);
-
-      var infoWindow = new google.maps.InfoWindow({
-        content: compiled[0]
-      });
-
-        google.maps.event.addListener(marker, 'click', function () {
-          infoWindow.open($scope.map, marker);
-        });
-
-      $scope.map.panTo(latLng);
-
-      //});
-    }, function(error){
-      console.log("Could not get location");
-    });*/
 
     $scope.clickTest = function() {
       alert('Example of infowindow with ng-click')
@@ -166,20 +118,47 @@ angular.module('starter')
     $scope.centerOnMe = function() {
       _getCurPosition().then(function(pos){
         $scope.map.center = {
+          zoom: 7,
           latitude: pos.coords.latitude,
           longitude: pos.coords.longitude
         };
+        //current position marker
         $scope.map.markers.push({
-          id: '123',
+          id: '1234',
           show: true,
-          latitude: pos.coords.latitude,
-          longitude: pos.coords.longitude,
           coords: {
             latitude: pos.coords.latitude,
             longitude: pos.coords.longitude
           },
           options: {
             icon: './img/bluedot32.png'
+          },
+          windowOptions: {
+            visible: false,
+            boxClass: "infobox",
+            alignBottom: true
+          }
+        });
+
+        //test butitian bubble
+        $scope.map.markers.push({
+          id: '123',
+          show: true,
+          coords: {
+            latitude: 42.049575,
+            longitude: -72.614299
+          },
+          options: {
+            icon: './img/noimage.png'
+          },
+          windowOptions: {
+            boxClass: "infobox",
+            alignBottom: true,
+            pixelOffset: new google.maps.Size(-120 , -30, 'px', 'px')
+            /*,boxStyle: {
+             backgroundColor: "#f9f9f9",
+             border: "2px solid d9d9d9"
+             }*/
           }
         });
       }, function(error){
@@ -207,15 +186,21 @@ angular.module('starter')
       $scope.map.markers.push({
         id: '123',
         show: true,
-        latitude: location.geometry.location.lat(),
-        longitude: location.geometry.location.lng(),
         coords: {
           latitude: location.geometry.location.lat(),
           longitude: location.geometry.location.lng()
         },
         options: {
-          //icon:
-          // 'https://2.bp.blogspot.com/-fQuA-G2XLw8/VX4TFzAtVeI/AAAAAAAAB-w/-MWtUdnzOAw/s1600/BlueDot64.png'
+          icon: './img/noimage.png'
+        },
+        windowOptions: {
+          boxClass: "infobox",
+          alignBottom: true,
+          pixelOffset: new google.maps.Size(-120 , -30, 'px', 'px')
+          /*,boxStyle: {
+           backgroundColor: "#f9f9f9",
+           border: "2px solid d9d9d9"
+           }*/
         }
       });
       //TODO call api to update request location
