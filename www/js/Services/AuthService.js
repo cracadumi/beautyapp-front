@@ -6,7 +6,6 @@ angular.module("starter")
   .service("AuthService", [
     "$q",
     "$http",
-    "$localStorage",
     "$ionicLoading",
     "$ionicPopup",
     "CONFIG",
@@ -36,7 +35,25 @@ var register = function (User) {
           });
         });
       };
+
+      var showUser = function(access_token){
+        return $q(function (resolve, reject) {
+          $http.get(API_URL + "/api/v1/me?access_token=" + access_token).then(function (res) {
+
+            //storeUser(res.data);
+            resolve(res.data);
+          }, function (error) {
+            console.log("*** error : " + angular.toJson(error));
+            var msg;
+            if (error.data && error.data.code === "ConflictError") {
+              msg = "duplicate";
+            }
+            reject(msg);
+          });
+        });
+      }
       return {
-        register: register
+        register: register,
+        showUser:showUser
       }
     }]);

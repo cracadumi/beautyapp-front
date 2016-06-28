@@ -1,5 +1,7 @@
-<ion-view hide-nav-bar="true">
-  <ion-content class="sign-up ">
+<ion-view hide-back-button="false" hide-nav-bar="true" >
+
+  <ion-content class="sign-up">
+
 <div class="img-block ">
   <img class="background" src="img/background.jpg">
   <img class="plus" src="img/plus.png">
@@ -20,7 +22,7 @@
         <small class="">
           Already an account
         </small>
-        <h3>Sign in</h3>
+        <h3 ng-click="goToLoginPage()">Sign in</h3>
         <span>visit our Website to Sign up as a beautician...</span>
       </div>
     </div>

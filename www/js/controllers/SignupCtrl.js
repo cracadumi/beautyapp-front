@@ -1,5 +1,5 @@
 angular.module('starter')
-  .controller('SignupCtrl', function ($rootScope, $scope, $state, $ionicLoading, transformRequestAsFormPost, $http,$ionicPopup) {
+  .controller('SignupCtrl', function ($rootScope, $scope, $state, $ionicLoading, transformRequestAsFormPost, $http,$ionicPopup,$ionicHistory) {
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
       $rootScope.hideTabs = true;
@@ -10,6 +10,13 @@ angular.module('starter')
     $scope.goToLoginPage = function(){
       $state.go('tab.signin');
     }
+    var startPage
+
+
+    $scope.myGoBack = function() {
+      $ionicHistory.goBack();
+      console.log($ionicHistory.goBack.arguments);
+    };
 ///Signup with Email
     $scope.user = {};
     $scope.confirmpass = "";
@@ -42,14 +49,14 @@ angular.module('starter')
               title:  'You successful registered ',
               scope: $scope,
               buttons: [
-                { text: 'OK',
-                  type: 'button-positive',
-                  onTap: function(e){
-                    $state.go("tab.map");
-                  }
+              { text: 'OK',
+                type: 'button-positive',
+                onTap: function(e){
+                  $state.go("tab.map");
                 }
-              ]
-            });
+              }
+            ]
+          });
           })
           .error(function(e){
             console.log(e.errors,e.errors.email);
@@ -61,11 +68,11 @@ angular.module('starter')
                 template: "Use another email",
               })}
             if(!!e.errors.email && e.errors.email == "has already been taken"){
-              error = "User with this email already exists";
+              error = "user already has an account with this email";
               $scope.showAlert();
             }
             if(!!e.errors.username && e.errors.username == "has already been taken"){
-              error = "User with this username already exists";
+              error = "user already has an account with this username";
               $scope.showAlert();
             }
 

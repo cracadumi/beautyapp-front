@@ -7,5 +7,5 @@
 
 angular.module('starter')
   .controller('MapMarkerCtrl', function($scope, $stateParams) {
-    console.log($stateParams);
+    //console.log($stateParams);
   });

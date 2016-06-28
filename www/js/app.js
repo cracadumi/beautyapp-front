@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'google.places', 'starter.services'])
+angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'google.places', 'starter.services','ngStorage'])
 
-.run(function($ionicPlatform) {
+.run( function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -62,6 +62,7 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
         }
       }
     })
+
   .state('tab.signin', {
     url: '/signin',
     views: {
@@ -71,7 +72,15 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
       }
     }
   })
-
+    .state('tab.signin-email', {
+      url: '/signin-email',
+      views: {
+        'tab-signin': {
+          templateUrl: 'templates/tab-signin-email.html',
+          controller: 'SigninCtrl'
+        }
+      }
+    })
   .state('tab.map', {
     url: '/map',
     views: {
