@@ -19739,6 +19739,21 @@ ion-header-bar {
 .infobox img {
   display: none; }
 
+.map-avatar img {
+  display: block;
+  border: 4px solid #7ecc02;
+  position: absolute;
+  left: 90px;
+  top: 145px;
+  width: 60px;
+  height: 60px;
+  min-height: 60px;
+  min-width: 60px;
+  backface-visibility: hidden;
+  padding: 0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%; }
+
 .map-marker .item-divider {
   font-size: 20px; }
 

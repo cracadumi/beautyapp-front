@@ -39,12 +39,21 @@
                       options="marker.options"
                       click="markerClick(marker)">
         <ui-gmap-window show="marker.show"
-                        options="map.windowOptions"
+                        options="marker.windowOptions"
                         closeClick="markerClose(marker)"
                         templateUrl="map.windowTemplate"
                         templateParameter="map.windowParameter(marker)"
                         ng-cloak="ng-cloak">
         </ui-gmap-window>
+        <!--<ui-gmap-window show="marker.show"
+                        ng-repeat="marker in map.markers"
+                        coords="marker.coords"
+                        options="marker.windowOptions"
+                        closeClick="markerClose(marker)"
+                        templateUrl="map.windowTemplate"
+                        templateParameter="map.windowParameter(marker)"
+                        ng-cloak="ng-cloak">
+        </ui-gmap-window>-->
       </ui-gmap-marker>
     </ui-gmap-google-map>
   </ion-content>
