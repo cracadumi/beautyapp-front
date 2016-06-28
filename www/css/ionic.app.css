@@ -19855,6 +19855,8 @@ ion-header-bar {
       overflow: hidden;
       margin-bottom: 0;
       padding: 0 0 5px; }
+      .profile-page .list.card .item.item-body .list.list-photo textarea {
+        width: 100%; }
       .profile-page .list.card .item.item-body .list.list-photo a {
         padding: 10px 0px 10px 10px;
         background: transparent;
@@ -19924,19 +19926,35 @@ ion-header-bar {
 .profile-settings .change-password .item input {
   padding: 0 15px 0 7px; }
 
-.profile-settings .payments-cards .item span {
-  font-size: 32px;
-  height: 12px;
-  display: inline-block;
-  line-height: 5px;
-  vertical-align: middle; }
-
-.profile-settings .payments-cards .item .ion-checkmark:before {
-  font-size: 20px;
-  color: #147dfa; }
+.profile-settings .payments-cards .item {
+  font-size: 16px; }
+  .profile-settings .payments-cards .item .radio-content .item-content {
+    padding-left: 70px; }
+  .profile-settings .payments-cards .item span {
+    font-size: 20px;
+    height: 12px;
+    display: inline-block;
+    line-height: 5px;
+    vertical-align: middle;
+    margin: 0 3px; }
+  .profile-settings .payments-cards .item .icon.master-card:before {
+    content: url("../img/master-card.png"); }
+  .profile-settings .payments-cards .item .icon.visa:before {
+    content: url("../img/visa.jpg"); }
+  .profile-settings .payments-cards .item .icon.ion-plus-circled {
+    margin-left: 10px; }
+  .profile-settings .payments-cards .item .ion-checkmark:before {
+    font-size: 20px;
+    color: #147dfa; }
 
 .profile-settings .payments-cards .add-card {
   color: #6735ce;
-  font-size: 20px; }
+  font-size: 20px;
+  padding-left: 70px; }
   .profile-settings .payments-cards .add-card .ion-plus-circled:before {
-    color: #6735ce; }
+    color: #6735ce;
+    font-size: 36px; }
+
+.profile-settings textarea {
+  width: 100%;
+  padding: 5px 15px; }
