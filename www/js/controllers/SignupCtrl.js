@@ -46,7 +46,7 @@ angular.module('starter')
             console.log(data);
             $ionicLoading.hide();
             var Popup = $ionicPopup.show({
-              title:  'You successful registered ',
+              title:  'You have been successfully registered',
               scope: $scope,
               buttons: [
               { text: 'OK',
