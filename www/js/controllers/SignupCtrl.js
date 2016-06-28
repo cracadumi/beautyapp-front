@@ -4,6 +4,7 @@ angular.module('starter')
       console.log('hiding tabbar');
       $rootScope.hideTabs = true;
     });
+
     $scope.signUpEmail = function () {
       $state.go('tab.signup-email');
     }

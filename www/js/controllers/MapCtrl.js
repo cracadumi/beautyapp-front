@@ -8,20 +8,20 @@
 angular.module('starter')
   .controller('MapCtrl', function($q, $rootScope, $scope, $ionicLoading,$localStorage,$state, $compile, uiGmapGoogleMapApi, $http) {
     $scope.$on('$ionicView.beforeEnter', function (e) {
-      console.log('hiding tabbar');
-      $rootScope.hideTabs = true;
-      if (!$localStorage.CurrentUser) {
-        $state.go('tab.signin');
-      }
-      else{
-        $scope.user = $localStorage.CurrentUser;
-        $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
-      }
+      //console.log('hiding tabbar');
+      //$rootScope.hideTabs = true;
+
 
     });
     //var DEFAULT_MAP_LOC = new google.maps.LatLng(43.07493,-89.381388);
     $scope.location = '';
-
+    //if (!$localStorage.CurrentUser) {
+    //  $state.go('tab.signin');
+    //}
+    //else{
+    //  $scope.user = $localStorage.CurrentUser;
+    //  $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
+    //}
 
     $scope.map = {
       windowTemplate: "templates/marker-template.html",

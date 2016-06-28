@@ -50,6 +50,7 @@ angular.module('starter')
             $ionicLoading.hide();
 
             $state.go('tab.map')
+            console.log("map");
           })
           .error(function (e) {
             $ionicLoading.hide();
