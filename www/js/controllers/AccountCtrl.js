@@ -1,5 +1,14 @@
 angular.module('starter')
-  .controller('AccountCtrl', function($scope,$state,$rootScope,$localStorage,AuthService,$ionicLoading,$ionicHistory) {
+  .controller('AccountCtrl', function ($scope,
+                                       $state,
+                                       $rootScope,
+                                       $localStorage,
+                                       AuthService,
+                                       ProfileService,
+                                       $ionicLoading,
+                                       $ionicHistory,
+                                       $timeout,
+                                       $ionicPopup) {
 
     var access_token = $localStorage.tokens.access_token;
 
@@ -11,52 +20,64 @@ angular.module('starter')
       //  $state.go('tab.signin');
       //}
       //else{
-        $scope.user = $localStorage.CurrentUser;
-        $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
+      $scope.user = $localStorage.CurrentUser;
+      $scope.user.created_at = $scope.user.created_at.substr(0, 4);
       //}
-      $scope.updateGrossOptions = function(){
+      $scope.updateGrossOptions = function () {
 
       }
     });
 
+    $scope.toggleField = function ($event) {
+      $scope.openField = !$scope.openField;
+      //if(!!$scope.openField){
+      //  angular.element(document.querySelector('#textarea')).triggerHandler('clickfocus');
+      //}
+      console.log($scope.openField);
+    }
+//$scope.onTap = function(event){
+//  $(this).addClass('active');
+//}
     $scope.$on('$ionicView.Enter', function (e) {
-      $scope.payments = [{name:$localStorage.payments}];
+      $scope.payments = [{name: $localStorage.payments}];
       console.log($scope.payments);
     });
 
-    $scope.openSettings = function(){
+    $scope.openSettings = function () {
       $state.go('tab.profile-settings');
     };
 
-    $scope.openSettingsChangePass = function(){
+    $scope.openSettingsChangePass = function () {
       $state.go('tab.profile-settings-change-password');
     };
 
-    $scope.openSettingsPayments = function(){
+    $scope.openSettingsPayments = function () {
       $state.go('tab.profile-settings-payments');
     };
 
-    $scope.goToAddCard = function(){
+    $scope.goToAddCard = function () {
       $state.go('tab.profile-settings-addcard')
     };
 
 
-    $scope.signOut = function(access_token){
+    $scope.signOut = function (access_token) {
+      $ionicLoading.show();
       AuthService.signOut(access_token).then(function (data) {
         delete $localStorage.tokens.access_token;
         delete $localStorage.CurrentUser;
         console.log(data);
         $state.go('tab.signin');
+        $ionicLoading.hide();
       })
     }
 
 
-    $scope.togglePaymentsMethod = function(method){
+    $scope.togglePaymentsMethod = function (method) {
       console.log(method);
       $localStorage.payments = method;
       console.log($localStorage.payments);
     }
-    $scope.ChPassword = { } ;
+    $scope.ChPassword = {};
     $scope.submitForm = function (isFormValid) {
       //console.log("!!!");
       if (isFormValid) {
@@ -65,12 +86,12 @@ angular.module('starter')
 
         var password = $scope.ChPassword.password;
         var current_password = $scope.ChPassword.current_password;
-        console.log(current_password,password);
+        console.log(current_password, password);
         AuthService.changePass(password, current_password).then(function (data) {
           console.log(data);
           $ionicLoading.hide();
           $ionicHistory.goBack();
-        }, function(e) {
+        }, function (e) {
           //TODO handle change pass error
           $ionicLoading.hide();
           console.log(e);
@@ -97,6 +118,48 @@ angular.module('starter')
         //    $scope.showAlert();
         //  }
         //});
+      }
+    }
+    //trigger a save button
+    $scope.clickOnSubmitUpdate = function () {
+      $timeout(function () {
+        angular.element(document.querySelector('#save-button')).triggerHandler('click');
+      }, 100);
+    };
+    $scope.event = function(){
+      console.log("move");
+    }
+    $scope.userData = {};
+    $scope.userData.textarea = $localStorage.CurrentUser.bio;
+    //console.log($localStorage.CurrentUser.bio);
+    $scope.submitFormUpdate = function (isFormValid) {
+      var message;
+      $scope.showAlert = function () {
+        var alertPopup = $ionicPopup.alert({
+          title: message,
+        })
+      };
+
+      if (isFormValid) {
+
+        $ionicLoading.show();
+        ProfileService.updateProfile($scope.userData.textarea).then(function (data) {
+          //console.log(data);
+          AuthService.showUser($localStorage.tokens.access_token).then(function (user) {
+            //console.log(user);
+            $localStorage.CurrentUser = user;
+          })
+          $ionicLoading.hide();
+          message = "Data succeful update";
+          $scope.showAlert();
+
+
+
+        }, function (e) {
+          //TODO handle change pass error
+          $ionicLoading.hide();
+          console.log(e);
+        });
       }
     }
   });
