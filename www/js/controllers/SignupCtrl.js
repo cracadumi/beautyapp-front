@@ -66,8 +66,8 @@ angular.module('starter')
             $scope.showAlert = function() {
               var alertPopup = $ionicPopup.alert({
                 title: error,
-                template: "Use another email",
-              })}
+                template: "Use another email"
+              })};
             if(!!e.errors.email && e.errors.email == "has already been taken"){
               error = "user already has an account with this email";
               $scope.showAlert();

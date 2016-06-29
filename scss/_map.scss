@@ -19,7 +19,7 @@
   display: none;
 }
 
-.map-avatar {
+.infobox .map-avatar {
   img {
     display: block;
     border: 4px solid $green;
@@ -35,6 +35,14 @@
     border-radius: 50%;
     -webkit-border-radius: 50%;
   }
+}
+
+.cur-position img{
+  display: none;
+
+}
+.cur-pos-marker img {
+  display: block;
 }
 
 .map-marker {

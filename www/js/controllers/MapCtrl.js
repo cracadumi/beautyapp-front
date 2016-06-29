@@ -24,7 +24,7 @@ angular.module('starter')
     //}
 
     $scope.map = {
-      windowTemplate: "templates/marker-template.html",
+      windowTemplate: "templates/tab-map-marker.html",
       windowParameter: function(marker){
         return marker;
       },
@@ -129,27 +129,9 @@ angular.module('starter')
     $scope.centerOnMe = function() {
       _getCurPosition().then(function(pos){
         $scope.map.center = {
-          zoom: 7,
           latitude: pos.coords.latitude,
           longitude: pos.coords.longitude
         };
-        //current position marker
-        $scope.map.markers.push({
-          id: '1234',
-          show: true,
-          coords: {
-            latitude: pos.coords.latitude,
-            longitude: pos.coords.longitude
-          },
-          options: {
-            icon: './img/bluedot32.png'
-          },
-          windowOptions: {
-            visible: false,
-            boxClass: "infobox",
-            alignBottom: true
-          }
-        });
 
         //test butitian bubble
         $scope.map.markers.push({
@@ -166,12 +148,30 @@ angular.module('starter')
             boxClass: "infobox",
             alignBottom: true,
             pixelOffset: new google.maps.Size(-120 , -30, 'px', 'px')
-            /*,boxStyle: {
-             backgroundColor: "#f9f9f9",
-             border: "2px solid d9d9d9"
-             }*/
           }
         });
+
+        //current position marker
+        $scope.curentPosition = [{
+          id: '1234',
+          show: true,
+          coords: {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude
+          },
+          options: {
+            icon: './img/noimage.png'
+          },
+          windowOptions: {
+            boxClass: "cur-position"
+          },
+          windowTemplate: "templates/tab-map-marker-current-pos.html",
+          windowParameter: function(marker){
+            return marker;
+          }
+        }];
+
+
       }, function(error){
         console.log("Could not get location");
       });
