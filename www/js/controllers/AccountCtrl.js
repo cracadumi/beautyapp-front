@@ -1,8 +1,12 @@
 angular.module('starter')
-  .controller('AccountCtrl', function($scope,$state,$rootScope,$localStorage,AuthService,$ionicLoading) {
+  .controller('AccountCtrl', function($scope,$state,$rootScope,$localStorage,AuthService,$ionicLoading,$ionicHistory) {
+
+    var access_token = $localStorage.tokens.access_token;
+
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
-      $rootScope.hideTabs = true;
+      //TODO do we need to hide tab bar here ?
+      //$rootScope.hideTabs = true;
       //if (!$localStorage.CurrentUser) {
       //  $state.go('tab.signin');
       //}
@@ -10,45 +14,49 @@ angular.module('starter')
       //  $scope.user = $localStorage.CurrentUser;
       //  $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
       //}
-$scope.updateGrossOptions = function(){
+      $scope.updateGrossOptions = function(){
 
-}
+      }
     });
+
     $scope.$on('$ionicView.Enter', function (e) {
-      $scope.payments = [{name:$localStorage.payments}]
+      $scope.payments = [{name:$localStorage.payments}];
       console.log($scope.payments);
-    })
+    });
 
+    $scope.openSettings = function(){
+      $state.go('tab.profile-settings');
+    };
 
-   $scope.openSettings = function(){
-     $state.go('tab.profile-settings');
-   }
     $scope.openSettingsChangePass = function(){
       $state.go('tab.profile-settings-change-password');
-    }
+    };
+
     $scope.openSettingsPayments = function(){
       $state.go('tab.profile-settings-payments');
+    };
+
+    $scope.goToAddCard = function(){
+      $state.go('tab.profile-settings-addcard')
+    };
+
+
+    $scope.signOut = function(access_token){
+      AuthService.signOut(access_token).then(function (data) {
+        delete $localStorage.tokens.access_token;
+        delete $localStorage.CurrentUser;
+        console.log(data);
+        $state.go('tab.signin');
+      })
     }
-      $scope.goToAddCard = function(){
-        $state.go('tab.profile-settings-addcard')
-      }
-    var access_token = $localStorage.tokens.access_token;
-$scope.signOut = function(access_token){
-  AuthService.signOut(access_token).then(function (data) {
-    delete $localStorage.tokens.access_token;
-    delete $localStorage.CurrentUser;
-console.log(data);
-    $state.go('tab.signin');
-  })
-}
 
 
-$scope.togglePaymentsMethod = function(method){
-  console.log(method);
-  $localStorage.payments = method;
-  console.log($localStorage.payments);
-}
-   $scope.ChPassword = { } ;
+    $scope.togglePaymentsMethod = function(method){
+      console.log(method);
+      $localStorage.payments = method;
+      console.log($localStorage.payments);
+    }
+    $scope.ChPassword = { } ;
     $scope.submitForm = function (isFormValid) {
       //console.log("!!!");
       if (isFormValid) {
@@ -59,8 +67,14 @@ $scope.togglePaymentsMethod = function(method){
         var current_password = $scope.ChPassword.current_password;
         console.log(current_password,password);
         AuthService.changePass(password, current_password).then(function (data) {
-          consoloe.log(data)
-        })
+          console.log(data);
+          $ionicLoading.hide();
+          $ionicHistory.goBack();
+        }, function(e) {
+          //TODO handle change pass error
+          $ionicLoading.hide();
+          console.log(e);
+        });
         //  .error(function(e){
         //  console.log(e.errors,e.errors.email);
         //  $ionicLoading.hide();
