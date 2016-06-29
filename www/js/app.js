@@ -91,6 +91,16 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
     }
   })
 
+  .state('tab.map-filters', {
+    url: '/map/filters',
+    views: {
+      'tab-map': {
+        templateUrl: 'templates/tab-map-filters.html',
+        controller: 'MapCtrl'
+      }
+    }
+  })
+
   .state('tab.favorites', {
       url: '/favorites',
       views: {
