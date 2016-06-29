@@ -1,8 +1,20 @@
 angular.module('starter')
-  .controller('SignupCtrl', function ($rootScope, $scope, $state, $ionicLoading, transformRequestAsFormPost, $http,$ionicPopup,$ionicHistory) {
+  .controller('SignupCtrl', function ($rootScope, $scope, $state, $ionicLoading, transformRequestAsFormPost,$localStorage, $http,$ionicPopup,$ionicHistory) {
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
       $rootScope.hideTabs = true;
+
+
+      $rootScope.hideTabs = true;
+      //console.log()
+      //if (!$localStorage.CurrentUser) {
+      //  $state.go('tab.signin');
+      //}
+      if($localStorage.CurrentUser){
+      //$scope.user = $localStorage.CurrentUser;
+      //$scope.user.created_at = $scope.user.created_at.substr(0,4) ;
+        $state.go('tab.map');
+      }
     });
 
     $scope.signUpEmail = function () {

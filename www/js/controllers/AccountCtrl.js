@@ -11,8 +11,8 @@ angular.module('starter')
       //  $state.go('tab.signin');
       //}
       //else{
-      //  $scope.user = $localStorage.CurrentUser;
-      //  $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
+        $scope.user = $localStorage.CurrentUser;
+        $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
       //}
       $scope.updateGrossOptions = function(){
 

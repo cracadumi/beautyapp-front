@@ -54,8 +54,16 @@ angular.module('starter')
           })
           .error(function (e) {
             $ionicLoading.hide();
-
-
+            console.log(e.error = "invalid_grant")
+            $scope.showAlert = function() {
+              var alertPopup = $ionicPopup.alert({
+                title: error,
+                template: "Try again"
+              })};
+            if(e.error = "invalid_grant"){
+              error = "Email or password are wrong!";
+              $scope.showAlert();
+            }
           });
       }
 

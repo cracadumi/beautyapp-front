@@ -1,9 +1,18 @@
 .sign-up{
   width:100%;
-  height:100%;
-  position:relative;
+  //height:100%;
+  //position:relative;
   .sign-up-form{
     margin-top:10px;
+  }
+  .form-error{
+    position:absolute;
+    top:-30px;
+    color:red;
+    text-align:center;
+    padding:5px 15px;
+    width:100%;
+    font-size:16px;
   }
   .background{
     width:100vw;
@@ -64,7 +73,7 @@
       text-align: left;
       &.icon-left:before{
         font-size: 36px;
-        margin: 0 10px 0 10px;
+        margin: 0 5px 0 5px;
         width: 36px;
         text-align: center;
       }
