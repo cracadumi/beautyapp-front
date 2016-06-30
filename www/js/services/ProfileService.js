@@ -41,4 +41,4 @@ angular.module("starter")
       return{
         updateProfile:updateProfile
       }
-    }])
+    }]);
