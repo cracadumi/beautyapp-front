@@ -1,5 +1,5 @@
 <div ng-controller="MapMarkerCtrl">
-  <div class="card map-marker">
+  <div class="card map-marker" ng-show="hideBubble">
     <div class="item item-divider item-icon-left">
         <i class="icon ion-record on-line"></i>
         Carlos Nochito
@@ -30,7 +30,7 @@
       </a>
     </div>
   </div>
-  <div class="map-avatar">
+  <div class="map-avatar" ng-click="hideBubble = !hideBubble">
     <img src="https://randomuser.me/api/portraits/thumb/women/80.jpg">
   </div>
 </div>

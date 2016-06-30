@@ -34,10 +34,12 @@ angular.module('starter')
       //  angular.element(document.querySelector('#textarea')).triggerHandler('clickfocus');
       //}
       console.log($scope.openField);
-    }
-//$scope.onTap = function(event){
-//  $(this).addClass('active');
-//}
+    };
+
+    //$scope.onTap = function(event){
+    //  $(this).addClass('active');
+    //}
+
     $scope.$on('$ionicView.Enter', function (e) {
       $scope.payments = [{name: $localStorage.payments}];
       console.log($scope.payments);
@@ -69,14 +71,14 @@ angular.module('starter')
         $state.go('tab.signin');
         $ionicLoading.hide();
       })
-    }
-
+    };
 
     $scope.togglePaymentsMethod = function (method) {
       console.log(method);
       $localStorage.payments = method;
       console.log($localStorage.payments);
-    }
+    };
+
     $scope.ChPassword = {};
     $scope.submitForm = function (isFormValid) {
       //console.log("!!!");
@@ -119,7 +121,8 @@ angular.module('starter')
         //  }
         //});
       }
-    }
+    };
+
     //trigger a save button
     $scope.clickOnSubmitUpdate = function () {
       $timeout(function () {
@@ -128,7 +131,8 @@ angular.module('starter')
     };
     $scope.event = function(){
       console.log("move");
-    }
+    };
+
     $scope.userData = {};
     $scope.userData.textarea = $localStorage.CurrentUser.bio;
     //console.log($localStorage.CurrentUser.bio);
@@ -148,31 +152,33 @@ angular.module('starter')
           AuthService.showUser($localStorage.tokens.access_token).then(function (user) {
             //console.log(user);
             $localStorage.CurrentUser = user;
-          })
+          });
           $ionicLoading.hide();
           message = "Data succeful update";
           $scope.showAlert();
-
-
-
         }, function (e) {
           //TODO handle change pass error
           $ionicLoading.hide();
           console.log(e);
         });
+
       }
-    }
+    };
+
     //Move to Static pages
     $scope.goToSettingsHelp = function(){
       $state.go('tab.profile-settings-help');
       console.log("!!!");
-    }
+    };
+
     $scope.goToSettingsAbout = function(){
       $state.go('tab.profile-settings-about');
-    }
+    };
+
     $scope.goToSettingsPolicy = function(){
       $state.go('tab.profile-settings-policy');
-    }
+    };
+
     $scope.goToSettingsTerms = function(){
       $state.go('tab.profile-settings-terms');
     }

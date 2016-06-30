@@ -6,32 +6,22 @@
  */
 
 angular.module('starter')
-  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicLoading,$localStorage,$state, $compile, uiGmapGoogleMapApi, $http) {
+  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicLoading,$localStorage,$state, $compile, uiGmapGoogleMapApi, $http, $cordovaGeolocation) {
     $scope.$on('$ionicView.beforeEnter', function (e) {
       //console.log('hiding tabbar');
       //$rootScope.hideTabs = true;
 
 
     });
-    //var DEFAULT_MAP_LOC = new google.maps.LatLng(43.07493,-89.381388);
+    var DEFAULT_MAP_LOC = new google.maps.LatLng(43.07493,-89.381388);
     $scope.location = '';
-    //if (!$localStorage.CurrentUser) {
-    //  $state.go('tab.signin');
-    //}
-    //else{
-    //  $scope.user = $localStorage.CurrentUser;
-    //  $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
-    //}
 
     $scope.map = {
       windowTemplate: "templates/tab-map-marker.html",
       windowParameter: function(marker){
         return marker;
       },
-      center: {
-        latitude: 51.844943699999995,
-        longitude: 4.3069723
-      },
+      center: DEFAULT_MAP_LOC,
       options: {
         zoomControl: false,
         minZoom: 5,
@@ -65,7 +55,7 @@ angular.module('starter')
 
 
     function _getCurPosition() {
-      var deferred = $q.defer();
+      /*var deferred = $q.defer();
       $ionicLoading.show({showBackdrop: false});
       navigator.geolocation.getCurrentPosition(function(pos) {
         deferred.resolve(pos);
@@ -73,42 +63,19 @@ angular.module('starter')
       }, function(error) {
         console.error('Unable to get location: ' + error.message);
         $ionicLoading.hide();
-      });
-
-
-      //TODO remove this test code when done
-      /*var fd = new FormData();
-      fd.append('user[role]','user');
-      fd.append('user[password]','31q2w3e4r');
-      fd.append('user[email]','3em3@il.ru');
-      fd.append('user[name]','3Name');
-      fd.append('user[surname]','3Surname');
-      fd.append('user[username]','3sulyanoff3');
-      $http.post('https://beautyapp.herokuapp.com/api/v1/registrations.json', fd, {
-        //transformRequest: angular.identity,
-        headers: {'Content-Type': undefined}
-      })
-        .success(function(data){
-          console.log(data);
-        })
-        .error(function(e){
-          console.log(e);
+      });*/
+      var deferred = $q.defer();
+      $ionicLoading.show({showBackdrop: false});
+      var posOptions = {timeout: 10000, enableHighAccuracy: false};
+      $cordovaGeolocation
+        .getCurrentPosition(posOptions)
+        .then(function (pos) {
+          deferred.resolve(pos);
+          $ionicLoading.hide();
+        }, function(error) {
+          console.error('Unable to get location: ' + error.message);
+          $ionicLoading.hide();
         });
-
-      var fd = new FormData();
-      fd.append('grant_type','password');
-      fd.append('password','31q2w3e4r');
-      fd.append('username','3em3@il.ru');
-      $http.post('https://beautyapp.herokuapp.com/oauth/token', fd, {
-        //transformRequest: angular.identity,
-        headers: {'Content-Type': undefined}
-      })
-        .success(function(data){
-          console.log(data);
-        })
-        .error(function(e){
-          console.log(e);
-        });*/
 
       return deferred.promise;
     }
@@ -138,16 +105,16 @@ angular.module('starter')
           id: '123',
           show: true,
           coords: {
-            latitude: 42.049575,
-            longitude: -72.614299
+            latitude: 42.049735,
+            longitude: -72.611484
           },
           options: {
-            icon: './img/noimage.png'
+            //icon: './img/noimage.png'
           },
           windowOptions: {
             boxClass: "infobox",
-            alignBottom: true,
-            pixelOffset: new google.maps.Size(-120 , -30, 'px', 'px')
+            //alignBottom: true,
+            pixelOffset: new google.maps.Size(-120 , -185, 'px', 'px')
           }
         });
 
@@ -160,11 +127,11 @@ angular.module('starter')
             longitude: pos.coords.longitude
           },
           options: {
-            icon: './img/noimage.png'
+            //icon: './img/noimage.png'
           },
           windowOptions: {
             boxClass: "cur-position",
-            alignBottom: true,
+            //alignBottom: true,
             pixelOffset: new google.maps.Size(-16 , -16, 'px', 'px')
           },
           windowTemplate: "templates/tab-map-marker-current-pos.html",
@@ -208,8 +175,8 @@ angular.module('starter')
         },
         windowOptions: {
           boxClass: "infobox",
-          alignBottom: true,
-          pixelOffset: new google.maps.Size(-120 , -30, 'px', 'px')
+          //alignBottom: true,
+          pixelOffset: new google.maps.Size(-120 , -185, 'px', 'px')
           /*,boxStyle: {
            backgroundColor: "#f9f9f9",
            border: "2px solid d9d9d9"
