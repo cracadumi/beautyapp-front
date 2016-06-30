@@ -1,18 +1,13 @@
 <ion-view hide-nav-bar="true" hide-back-button="false">
-  <ion-content class="sign-up " >
+  <ion-content class="sign-up " scroll="false">
     <div class="img-block " >
       <img class="background" src="img/background.jpg">
       <img class="plus" src="img/plus.png">
       <img class="logo logo-up" src="img/logo.png">
     </div>
-
     <form class="sign-up-form list"    name="signInEmail" ng-controller="SigninCtrl"
           autocomplete="off"
           ng-submit="submitForm(signInEmail.$valid)">
-
-
-
-
       <label class="item item-input">
         <span class="input-label">Username<sup>*</sup></span>
         <input type="email" placeholder="Enter your username"
@@ -36,8 +31,6 @@
                ng-pattern="/^.(?=.*\d)(?=.+[a-zA-Z])/"
                required>
       </label>
-
-
       <button class="button button-block button-royal activated" type="submit"
               ng-disabled="signInEmail.$invalid"
               tabindex="5"

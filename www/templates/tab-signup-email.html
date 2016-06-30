@@ -1,15 +1,13 @@
 <ion-view hide-nav-bar="true" hide-back-button="false">
-  <ion-content class="sign-up " >
+  <ion-content class="sign-up " scroll="false">
     <div class="img-block " >
       <img class="background" src="img/background.jpg">
       <img class="plus" src="img/plus.png">
       <img class="logo logo-up" src="img/logo.png">
     </div>
-
     <form class="sign-up-form list"    name="signUpEmail" ng-controller="SignupCtrl"
           autocomplete="off"
           ng-submit="submitForm(signUpEmail.$valid)">
-
 
       <div class="form-errors">
         <div class="form-error energized"
