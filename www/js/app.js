@@ -166,6 +166,42 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
         }
       }
     })
+    .state('tab.profile-settings-help', {
+      url: '/profile-settings-help',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-profile-settings-help.html',
+          controller: 'AccountCtrl'
+        }
+      }
+    })
+    .state('tab.profile-settings-about', {
+      url: '/profile-settings-about',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-profile-settings-about.html',
+          controller: 'AccountCtrl'
+        }
+      }
+    })
+    .state('tab.profile-settings-policy', {
+    url: '/profile-settings-policy',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-profile-settings-policy.html',
+        controller: 'AccountCtrl'
+      }
+    }
+  })
+    .state('tab.profile-settings-terms', {
+      url: '/profile-settings-terms',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-profile-settings-terms.html',
+          controller: 'AccountCtrl'
+        }
+      }
+    })
   ;
 
   // if none of the above states are matched, use this as the fallback

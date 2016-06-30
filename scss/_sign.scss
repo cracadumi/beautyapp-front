@@ -105,5 +105,12 @@
     vertical-align: bottom;
   }
 }
-
+.static-text{
+  position:relative;
+  z-index:1;
+  color:#fff;
+  text-align:center;
+  font-size:20px;
+  padding:10px;
+}
 }

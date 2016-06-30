@@ -162,4 +162,18 @@ angular.module('starter')
         });
       }
     }
+    //Move to Static pages
+    $scope.goToSettingsHelp = function(){
+      $state.go('tab.profile-settings-help');
+      console.log("!!!");
+    }
+    $scope.goToSettingsAbout = function(){
+      $state.go('tab.profile-settings-about');
+    }
+    $scope.goToSettingsPolicy = function(){
+      $state.go('tab.profile-settings-policy');
+    }
+    $scope.goToSettingsTerms = function(){
+      $state.go('tab.profile-settings-terms');
+    }
   });

@@ -19725,6 +19725,13 @@ ion-header-bar {
     height: 6px;
     display: inline-block;
     vertical-align: bottom; }
+  .sign-up .static-text {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px; }
 
 .angular-google-map {
   width: 100%;
