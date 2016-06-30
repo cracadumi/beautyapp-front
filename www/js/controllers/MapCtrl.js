@@ -163,7 +163,9 @@ angular.module('starter')
             icon: './img/noimage.png'
           },
           windowOptions: {
-            boxClass: "cur-position"
+            boxClass: "cur-position",
+            alignBottom: true,
+            pixelOffset: new google.maps.Size(-16 , -16, 'px', 'px')
           },
           windowTemplate: "templates/tab-map-marker-current-pos.html",
           windowParameter: function(marker){
