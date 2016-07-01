@@ -53,7 +53,7 @@ angular.module('starter')
         $scope.updateRequestLocation(newVal);
       }
     });
-    
+
     $scope.clickTest = function() {
       alert('Example of infowindow with ng-click')
     };
@@ -71,6 +71,9 @@ angular.module('starter')
       MarkerService.getCurrentPositionMarker().then(function (curPosMarker) {
         $scope.map.center = MarkerService.parseLocation(curPosMarker);
         $scope.curentPosition[0] = curPosMarker;
+        MarkerService.getMarkersNearPosition(curPosMarker).then(function (markers) {
+          $scope.map.markers = markers;
+        });
       });
     };
 

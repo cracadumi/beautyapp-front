@@ -80,13 +80,14 @@ angular.module("starter")
 
       var getMarkersNearPosition = function (location) {
         var markers = [];
+        var location = parseLocation(location);
         for(var i = 0; i < 3; i++) {
           markers.push({
             id: i,
             show: true,
             coords: {
-              latitude: parseFloat((parseFloat(location.geometry.location.lat()) - _getRandomNum()).toFixed(7)),
-              longitude: parseFloat((parseFloat(location.geometry.location.lng()) - _getRandomNum()).toFixed(7))
+              latitude: parseFloat((parseFloat(location.latitude) - _getRandomNum()).toFixed(7)),
+              longitude: parseFloat((parseFloat(location.longitude) - _getRandomNum()).toFixed(7))
             },
             options: {
               icon: './img/noimage.png'

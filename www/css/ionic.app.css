@@ -19818,6 +19818,24 @@ ion-header-bar {
     margin: 0 0 0 50px;
     font-size: 14px; }
 
+.filters .full-stars .icon:before, .filters .hollow-stars .icon:before {
+  font-size: 20px; }
+
+.filters .hollow-stars {
+  position: absolute; }
+  .filters .hollow-stars .icon {
+    color: #381d6f; }
+
+.filters .full-stars {
+  position: relative;
+  z-index: 2;
+  display: inline-block; }
+  .filters .full-stars .icon {
+    color: #ffd203; }
+
+.filters .ion-ios-star {
+  color: #ffd203; }
+
 .profile-page .list.card {
   margin: 0 0 0 0; }
   .profile-page .list.card .item-avatar {

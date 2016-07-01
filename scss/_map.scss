@@ -123,3 +123,28 @@
 
   }
 }
+
+.filters {
+  .full-stars,.hollow-stars{
+    .icon{
+      &:before{
+        font-size:20px;
+      }
+    }
+  }
+  .hollow-stars {
+    position: absolute;
+    .icon{
+      color: $star-hollow-color;
+    }
+  }
+  .full-stars {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    .icon {
+      color: $star-gold-color;
+    }
+  }
+}
+

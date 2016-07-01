@@ -5,4 +5,4 @@ angular.module("starter")
 .constant("CONFIG",{
   "APP_NAME":"beautyapp",
   "API_BASE":"http://beautyapp.herokuapp.com"
-})
+});

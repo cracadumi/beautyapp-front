@@ -1,16 +1,61 @@
-<ion-view view-title="Filter Appointments" hide-back-button="false">
-  <ion-content class="profile-settings">
-      <ion-list class="payments-cards">
+<ion-view view-title="Filter Beauticians" hide-back-button="false">
+  <ion-nav-buttons side="secondary">
+    <button class="button back-button buttons button-clear header-item" ng-click="applyFilters()">
+      Apply filters
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="filters">
+      <ion-list>
         <div class="item item-divider">
-          Filter Appointments
+          Category
         </div>
-        <ion-radio class="item item-icon-right" ng-model="filter" ng-value="date_time">
-          By date/time
+        <!--<ion-radio class="item item-icon-right" name="category" ng-model="filters.category" ng-value="Hair">
+          Hair{{filters.category}}
         </ion-radio>
+        <ion-radio class="item item-icon-right"name="category"  ng-model="filters.category" ng-value="Makeup">
+          Makeup
+        </ion-radio>
+        <ion-radio class="item item-icon-right"name="category"  ng-model="filters.category" ng-value="Nails">
+          Nails
+        </ion-radio>
+        <ion-radio class="item item-icon-right"name="category"  ng-model="filters.category" ng-value="Coaching">
+          Coaching
+        </ion-radio>
+        <div class="item item-divider">
+          Price
+        </div>-->
+        <ion-radio ng-repeat="item in filterValues.categories"
+                   ng-value="item"
+                   ng-checked="item === filters.category"
+                   ng-model="filters.category">
+          {{ item }}
+        </ion-radio>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Price range
+          </div>
 
-        <ion-radio class="item item-icon-right" ng-model="filter" ng-value="service">
-          By service
+          <select ng-model="data.price"
+                  ng-options="c.label for c in filterValues.priceRanges"
+                  ng-change="updatePriceFilter()"></select>
+        </label>
         </ion-radio>
+        <div class="item item-divider">
+          Minimum rating
+        </div>
+        <div class="item item-text-wrap">
+          <rating ng-model="filters.rating" max="filterValues.rating.max"></rating>
+        </div>
+        <div class="item item-divider">
+          Distance: {{filters.distance}} km
+        </div>
+        <div class="item range range-royal">
+          <i class="icon ion-ios-location-outline"></i>
+          <input type="range" name="distance" min="{{filterValues.distance.min}}" max="{{filterValues.distance.max}}"
+               value="filters.distance"
+               ng-model="filters.distance">
+           <i class="icon ion-ios-location"></i>
+        </div>
 
       </ion-list>
   </ion-content>
