@@ -1,7 +1,22 @@
 
-<ion-view hide-nav-bar="true" view-title="Map">
-
-  <div class="bar bar-header item-input-inset bar-royal">
+<ion-view hide-nav-bar="false" view-title="Map" align-title="right">
+  <!--<ion-nav-buttons side="secondary">
+    <a class="button button-clear button-light" href="#/tab/map/filters">
+      <i class="icon ion-levels"></i>
+    </a>
+  </ion-nav-buttons>-->
+  <ion-nav-buttons side="left">
+    <label class=" item item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="Search">
+    </label>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" href="#/tab/map/filters">
+      <i class="icon ion-levels"></i>
+    </a>
+  </ion-nav-buttons>
+  <!--<div class="bar bar-header item-input-inset bar-royal">
     <label class="item-input-wrapper">
       <i class="icon ion-ios-search placeholder-icon"></i>
       <input type="search" ng-model="location" g-places-autocomplete placeholder="Search by city, zip">
@@ -9,42 +24,14 @@
     <a class="button button-clear" href="#/tab/map/filters">
       <i class="icon ion-levels"></i>
     </a>
-  </div>
-  <ion-content class="has-header" scroll="false"  data-tap-disabled="true">
-    <!--<div id="map" data-tap-disabled="true"></div>-->
-    <!--<ui-gmap-google-map center='map.center' zoom='map.zoom' options="mapOptions">
-
-      <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
-
-    </ui-gmap-google-map>-->
+  </div>-->
+  <ion-content class="has-header" scroll="false" data-tap-disabled="true">
     <ui-gmap-google-map center="map.center"
                         draggable="true"
                         zoom="map.zoom"
                         options="map.options"
                         pan="true"
                         events="map.events">
-      <!--<ui-gmap-markers models="map.markers"
-                       doCluster="true"
-                       coords="'self'"
-                       icon="'icon'"
-                       click="'onclicked'"
-                       options="'options'"
-                       idkey='id'
-                       clusterOptions='map.clusterOptions'
-                       control='markerControl.getChildMarkers().get(id)'>
-      </ui-gmap-markers>-->
-      <!--<ui-gmap-marker ng-repeat="marker in map.markers"
-                      idKey="marker.id"
-                      coords="marker.coords"
-                      options="marker.options"
-                      click="markerClick(marker)">
-        <ui-gmap-window show="marker.show"
-                        options="marker.windowOptions"
-                        closeClick="markerClose(marker)"
-                        templateUrl="map.windowTemplate"
-                        templateParameter="map.windowParameter(marker)"
-                        ng-cloak="ng-cloak">
-        </ui-gmap-window>-->
         <ui-gmap-window show="marker.show"
                         ng-repeat="marker in map.markers"
                         coords="marker.coords"
@@ -63,7 +50,6 @@
                         templateParameter="curentPosition.windowParameter(curentPosition)"
                         ng-cloak="ng-cloak">
         </ui-gmap-window>
-      <!--</ui-gmap-marker>-->
     </ui-gmap-google-map>
   </ion-content>
   <ion-floating-button click="centerOnMe()" has-footer="true" button-color="#886aea" icon="ion-navigate" iconColor="#fff">
