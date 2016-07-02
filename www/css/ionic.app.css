@@ -19935,6 +19935,9 @@ ion-header-bar {
     max-width: 70px;
     max-height: 70px; }
 
+.profile-settings .list .item-select {
+  padding-left: 55px; }
+
 .profile-settings .list .item .icon:before {
   color: #b3b3b3;
   font-size: 30px; }

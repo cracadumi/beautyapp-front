@@ -63,7 +63,7 @@ angular.module('starter')
     $scope.signOut = function (access_token) {
       $ionicLoading.show();
       AuthService.signOut(access_token).then(function (data) {
-        delete $localStorage.tokens.access_token;
+        delete $localStorage.tokens;
         delete $localStorage.CurrentUser;
         console.log(data);
         $state.go('tab.signin');

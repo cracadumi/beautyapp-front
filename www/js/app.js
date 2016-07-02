@@ -62,7 +62,15 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'ion-floating-menu', 'g
         }
       }
     })
-
+    .state('tab.signup-facebook', {
+      url: '/signup-facebook',
+      views: {
+        'tab-signup': {
+          templateUrl: 'templates/tab-signup-facebook.html',
+          controller: 'SignupCtrl'
+        }
+      }
+    })
   .state('tab.signin', {
     url: '/signin',
     views: {
