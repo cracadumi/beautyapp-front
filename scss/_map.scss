@@ -8,7 +8,16 @@
   width: 100%;
   height: 100%;
 }
-
+.buttons-left{
+  width:calc(100% - 30px);
+  .left-buttons{
+    width:100%;
+    input{
+      width:100%;
+      padding:0 10px;
+    }
+  }
+}
 .infobox .card {
   margin: 0;
   width: 240px;
