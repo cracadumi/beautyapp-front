@@ -19747,7 +19747,8 @@ ion-header-bar {
     width: 100%; }
     .buttons-left .left-buttons input {
       width: 100%;
-      padding: 0 10px; }
+      padding: 0 10px;
+      background-color: #eee; }
 
 .infobox .card {
   margin: 0;
