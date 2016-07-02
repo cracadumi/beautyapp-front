@@ -1,4 +1,4 @@
-<ion-view view-title="Filter Beauticians" hide-back-button="false">
+<ion-view view-title="{{'FILTER_PAGE_TITLE' | translate}}" hide-back-button="false">
   <ion-nav-buttons side="secondary">
     <button class="button back-button buttons button-clear header-item" ng-click="applyFilters()">
       Apply filters
@@ -7,39 +7,29 @@
   <ion-content class="filters">
       <ion-list>
         <div class="item item-divider">
-          Category
+          Beauty Services
         </div>
-        <!--<ion-radio class="item item-icon-right" name="category" ng-model="filters.category" ng-value="Hair">
-          Hair{{filters.category}}
-        </ion-radio>
-        <ion-radio class="item item-icon-right"name="category"  ng-model="filters.category" ng-value="Makeup">
-          Makeup
-        </ion-radio>
-        <ion-radio class="item item-icon-right"name="category"  ng-model="filters.category" ng-value="Nails">
-          Nails
-        </ion-radio>
-        <ion-radio class="item item-icon-right"name="category"  ng-model="filters.category" ng-value="Coaching">
-          Coaching
-        </ion-radio>
-        <div class="item item-divider">
-          Price
-        </div>-->
         <ion-radio ng-repeat="item in filterValues.categories"
                    ng-value="item"
                    ng-checked="item === filters.category"
                    ng-model="filters.category">
           {{ item }}
         </ion-radio>
-        <label class="item item-input item-select">
+
+        <div class="item item-divider">
+          Price
+        </div>
+        <!--<label class="item item-input item-select">
           <div class="input-label">
-            Price range
+            Price
           </div>
 
           <select ng-model="data.price"
                   ng-options="c.label for c in filterValues.priceRanges"
                   ng-change="updatePriceFilter()"></select>
-        </label>
-        </ion-radio>
+        </label>-->
+
+
         <div class="item item-divider">
           Minimum rating
         </div>
@@ -47,7 +37,7 @@
           <rating ng-model="filters.rating" max="filterValues.rating.max"></rating>
         </div>
         <div class="item item-divider">
-          Distance: {{filters.distance}} km
+          Distance: <span class="royal">{{filters.distance}}km</span>
         </div>
         <div class="item range range-royal">
           <i class="icon ion-ios-location-outline"></i>
