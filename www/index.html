@@ -8,8 +8,9 @@
 
     <title></title>
 
-    <link href="lib/ion-floating-menu/dist/ion-floating-menu.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="lib/angular-google-places-autocomplete/src/autocomplete.css">
+    <link rel="stylesheet" href="lib/ion-floating-menu/dist/ion-floating-menu.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="lib/angular-google-places-autocomplete/src/autocomplete.css" type="text/css" />
+    <link rel="stylesheet" href="lib/ionic-rating/ionic-rating.css" type="text/css" />
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above-->
     <link href="css/ionic.app.css" rel="stylesheet">
 
@@ -26,6 +27,10 @@
     <script src="lib/angular-google-places-autocomplete/src/autocomplete.js"></script>
     <script src="lib/ion-floating-menu/dist/ion-floating-menu.js" type="text/javascript"></script>
     <script src="lib/ngstorage/ngStorage.js" type="text/javascript"></script>
+    <script src="lib/angular-translate/angular-translate.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova-mocks.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/ionic-rating/ionic-rating.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -44,9 +49,12 @@
     <script src="js/controllers/FavoritesCtrl.js"></script>
     <script src="js/controllers/FavoritesDetailCtrl.js"></script>
     <script src="js/controllers/AccountCtrl.js"></script>
+    <script src="js/controllers/FiltersCtrl.js"></script>
       <!--services-->
     <script src="js/services/AuthService.js"></script>
     <script src="js/services/ProfileService.js"></script>
+    <script src="js/services/MarkerService.js"></script>
+    <script src="js/services/FiltersService.js"></script>
     <!--directives-->
     <script src="js/directives/passwordMatch.js"></script>
     <script src="js/directives/focus-me.js"></script>

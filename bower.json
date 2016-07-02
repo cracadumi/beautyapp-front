@@ -7,6 +7,9 @@
   "dependencies": {
     "ion-floating-menu": "^1.0.1",
     "angular-google-places-autocomplete": "^0.2.7",
-    "angular-google-maps": "^2.3.3"
+    "angular-google-maps": "^2.3.3",
+    "angular-translate": "^2.11.0",
+    "ngCordova": "^0.1.26-alpha",
+    "ionic-rating": "^0.3.0"
   }
 }
