@@ -1,14 +1,9 @@
 
-<ion-view hide-nav-bar="false" align-title="right">
-  <!--<ion-nav-buttons side="secondary">
-    <a class="button button-clear button-light" href="#/tab/map/filters">
-      <i class="icon ion-levels"></i>
-    </a>
-  </ion-nav-buttons>-->
+<ion-view hide-nav-bar="false" >
   <ion-nav-buttons side="left">
     <label class=" item item-input-wrapper">
       <i class="icon ion-ios-search placeholder-icon"></i>
-      <input type="search" placeholder="Search">
+      <input type="search" ng-model="$root.location" g-places-autocomplete placeholder="Search by city, zip">
     </label>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
@@ -16,15 +11,7 @@
       <i class="icon ion-levels"></i>
     </a>
   </ion-nav-buttons>
-  <!--<div class="bar bar-header item-input-inset bar-royal">
-    <label class="item-input-wrapper">
-      <i class="icon ion-ios-search placeholder-icon"></i>
-      <input type="search" ng-model="location" g-places-autocomplete placeholder="Search by city, zip">
-    </label>
-    <a class="button button-clear" href="#/tab/map/filters">
-      <i class="icon ion-levels"></i>
-    </a>
-  </div>-->
+
   <ion-content class="has-header" scroll="false" data-tap-disabled="true">
     <ui-gmap-google-map center="map.center"
                         draggable="true"
