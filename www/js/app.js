@@ -23,21 +23,32 @@ angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'ion-float
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider, $translateProvider) {
+.config(function(CONFIG, $ionicConfigProvider, $stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider, $translateProvider) {
+
+  var langKey = angular.fromJson(localStorage.getItem('ngStorage-selectedLanguage'));
+  if (!langKey) {
+    langKey = CONFIG.LANGUAGE_KEY.EN;
+  } else {
+    if (langKey === CONFIG.LANGUAGE_KEY.FR) {
+      $ionicConfigProvider.backButton.text("Arrière");
+    }
+  }
+    //.icon('ion-chevron-left')
+  $ionicConfigProvider.backButton.previousTitleText(true);
 
   $translateProvider.useStaticFilesLoader({
     prefix: 'languages/',
     suffix: '.json'
   });
 
-  $translateProvider.registerAvailableLanguageKeys(['en', 'fr'], {
-    'en-US': 'en',
-    'fr-FR': 'fr'
+  $translateProvider.registerAvailableLanguageKeys([CONFIG.LANGUAGE_KEY.EN, CONFIG.LANGUAGE_KEY.FR], {
+    'en-US': CONFIG.LANGUAGE_KEY.EN,
+    'fr-FR': CONFIG.LANGUAGE_KEY.FR
   })
 
   //$translateProvider.uniformLanguageTag('bcp47');
-  .preferredLanguage('en')
-    .fallbackLanguage('en')
+  .preferredLanguage(langKey)
+    .fallbackLanguage(CONFIG.LANGUAGE_KEY.EN)
     //.determinePreferredLanguage()
     .useSanitizeValueStrategy('escapeParameters');
 

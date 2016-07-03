@@ -6,7 +6,7 @@
  */
 
 angular.module('starter')
-  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicPlatform,  $ionicLoading,$localStorage,$state, $compile, uiGmapGoogleMapApi, $http, $cordovaGeolocation, MarkerService) {
+  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicPlatform,  $ionicLoading, $state, uiGmapGoogleMapApi, $http, $cordovaGeolocation, MarkerService) {
     $scope.$on('$ionicView.beforeEnter', function (e) {
       //console.log('hiding tabbar');
       //$rootScope.hideTabs = true;
