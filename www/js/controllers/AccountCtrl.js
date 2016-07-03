@@ -12,9 +12,12 @@ angular.module('starter')
                                        $translate) {
 
     var access_token = $localStorage.tokens.access_token;
+
+    $scope.data = {
+      language: $localStorage.selectedLanguage
+    };
+
     $scope.$on('$ionicView.beforeEnter', function (e) {
-      console.log('hiding tabbar');
-      //TODO do we need to hide tab bar here ?
       $rootScope.hideTabs = false;
       //if (!$localStorage.CurrentUser) {
       //  $state.go('tab.signin');
@@ -167,6 +170,7 @@ angular.module('starter')
 
     $scope.setLanguage = function (langKey) {
       console.log(langKey);
+      $localStorage.selectedLanguage = langKey;
       $translate.use(langKey);
     };
 

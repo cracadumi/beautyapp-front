@@ -1,9 +1,15 @@
 {
-  "SAVE": "Save",
+  "SAVE":                    "Save",
+  "BACK":                    "Back",
 
-  "MAP_SEARCH_PLACEHOLDER":    "Search by city, zip",
+  "MAP": {
+    "VIEW_TITLE":            "Map",
+    "SEARCH_PLACEHOLDER":    "Search by city, zip"
+  },
 
-  "FILTER_PAGE_TITLE":         "Filters",
+  "FILTERS": {
+    "VIEW_TITLE":             "Filters"
+  },
 
   "ACCOUNT": {
     "SETTINGS_TITLE":          "Settings",

@@ -1,4 +1,5 @@
-<ion-view view-title="{{'ACCOUNT.SETTINGS_TITLE' | translate}}" hide-back-button="false">
+<ion-view view-title="{{'ACCOUNT.SETTINGS_TITLE' | translate}}">
+  <!--<ion-nav-title>{{'ACCOUNT.SETTINGS_TITLE' | translate}}</ion-nav-title>-->
   <ion-nav-buttons side="right">
     <button class="button button-transparent " ng-click="clickOnSubmitUpdate()" >
       {{'SAVE' | translate}}
@@ -89,9 +90,9 @@
           <div class="input-label">
             {{'ACCOUNT.LANGUAGE' | translate}}
           </div>
-          <select required tabindex="7" ng-model="language" ng-change="setLanguage(language)">
+          <select required tabindex="7" ng-model="data.language" ng-change="setLanguage(data.language)">
             <option value="" disabled hidden></option>
-            <option ng-selected="true" value="en">English</option>
+            <option value="en">English</option>
             <option value="fr">French</option>
           </select >
         </label>
