@@ -1,12 +1,13 @@
 angular.module('starter')
   .controller('SignupCtrl', function ($rootScope, $scope, $state, $ionicLoading,
                                       transformRequestAsFormPost,$localStorage,
-                                      $http,$ionicPopup,$ionicHistory,AuthService) {
+                                      $http,$ionicPopup,$ionicHistory,AuthService, $translate) {
+    $scope.data = {
+      language: $localStorage.selectedLanguage
+    };
+
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
-      $rootScope.hideTabs = true;
-
-
       $rootScope.hideTabs = true;
       //console.log()
       //if (!$localStorage.CurrentUser) {
@@ -21,18 +22,18 @@ angular.module('starter')
 
     $scope.signUpEmail = function () {
       $state.go('tab.signup-email');
-    }
+    };
+
     $scope.goToLoginPage = function(){
       $state.go('tab.signin');
-    }
-    var startPage
-
+    };
 
     $scope.myGoBack = function() {
       $ionicHistory.goBack();
       console.log($ionicHistory.goBack.arguments);
     };
-///Signup with Email
+
+    //Signup with Email
     $scope.user = {};
     $scope.confirmpass = "";
     $scope.isHandleAvailable = false;
@@ -44,7 +45,6 @@ angular.module('starter')
         var User = $scope.user;
         User.email.toLowerCase();
 
-
         var fd = new FormData();
         fd.append('user[role]',"user");
         fd.append('user[password]',User.password);
@@ -53,9 +53,9 @@ angular.module('starter')
         fd.append('user[surname]',User.surname);
         fd.append('user[username]','@' + User.username);
         $http.post('http://beautyapp.herokuapp.com/api/v1/registrations.json', fd, {
-            //transformRequest: angular.identity,
-            headers: {'Content-Type': undefined}
-          })
+          //transformRequest: angular.identity,
+          headers: {'Content-Type': undefined}
+        })
           .success(function(data){
             console.log(data);
             $ionicLoading.hide();
@@ -63,14 +63,14 @@ angular.module('starter')
               title:  'You have been successfully registered',
               scope: $scope,
               buttons: [
-              { text: 'OK',
-                type: 'button-positive',
-                onTap: function(e){
-                  $state.go("tab.map");
+                { text: 'OK',
+                  type: 'button-positive',
+                  onTap: function(e){
+                    $state.go("tab.map");
+                  }
                 }
-              }
-            ]
-          });
+              ]
+            });
           })
           .error(function(e){
             console.log(e.errors,e.errors.email);
@@ -91,7 +91,7 @@ angular.module('starter')
             }
           });
       }
-    }
+    };
 
     $scope.connectToFB  = function(){
       if($rootScope.isWebView){
@@ -158,8 +158,9 @@ angular.module('starter')
         //}
         //$scope.showAlert(errorMsg);
       });
-    }
-$scope.facebookUser = {};
+    };
+
+    $scope.facebookUser = {};
     $scope.submitFormFacebook = function (isFormValid) {
       console.log("!!!!!", $rootScope.User,$scope.facebookUser);
       var fd = new FormData();
@@ -174,7 +175,7 @@ $scope.facebookUser = {};
       if (isFormValid) {
         $ionicLoading.show();
         //var User = $scope.user;
-          console.log("THIS",fd);
+        console.log("THIS",fd);
         AuthService.registerFB(fd).then(function (data) {
             //OneSignal.setDeviceTags();
             $ionicLoading.hide();
@@ -196,8 +197,14 @@ $scope.facebookUser = {};
             //  $scope.error = error;
             //}
           });
-      }}
+      }};
 
-  })
+    $scope.setLanguage = function (langKey) {
+      console.log(langKey);
+      $localStorage.selectedLanguage = langKey;
+      $translate.use(langKey);
+    };
+
+  });
 
 

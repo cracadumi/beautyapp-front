@@ -2,6 +2,22 @@
   "SAVE":                    "Save",
   "BACK":                    "Back",
 
+  "SIGN_IN":                 "Sign in",
+  "LANGUAGE":                "Language",
+  "NAME":                    "Name",
+  "NAME_PLACEHOLDER":        "Enter your name",
+  "SURNAME":                 "Surname",
+  "SURNAME_PLACEHOLDER":     "Enter your surname",
+  "USERNAME":                "Username",
+  "USERNAME_PLACEHOLDER":    "Enter your username",
+  "EMAIL_PLACEHOLDER":       "Enter your Email",
+  "PASS":                    "Password",
+  "PASS_PLACEHOLDER":        "Enter your password",
+  "CONFIRM_PASS":            "Confirm password",
+  "CONFIRM_PASS_PLACEHOLDER":"Confirm your password",
+  "FORGOT_PASS":             "Forgot password?",
+  "ALREADY_HAVE_ACCT":       "Already have an account?",
+
   "MAP": {
     "VIEW_TITLE":            "Map",
     "SEARCH_PLACEHOLDER":    "Search by city, zip"
@@ -18,7 +34,6 @@
     "ACCOUNT":                 "Account",
     "PAYMENTS":                "Payments",
     "CHANGE_PASS":             "Change password",
-    "LANGUAGE":                "Language",
     "SUPPORT":                 "Support",
     "HELP":                    "Help",
     "ABOUT":                   "About This Version",
