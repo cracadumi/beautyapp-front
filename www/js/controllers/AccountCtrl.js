@@ -15,7 +15,7 @@ angular.module('starter')
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
       //TODO do we need to hide tab bar here ?
-      //$rootScope.hideTabs = true;
+      $rootScope.hideTabs = false;
       //if (!$localStorage.CurrentUser) {
       //  $state.go('tab.signin');
       //}
