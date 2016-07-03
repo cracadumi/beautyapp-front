@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'ion-floating-menu', 'ionic.rating', 'google.places', 'starter.services','ngStorage'])
+angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'ion-floating-menu', 'ionic.rating', 'google.places', 'starter.services','ngStorage', 'pascalprecht.translate'])
 
 .run( function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +23,23 @@ angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'ion-float
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
+.config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider, $translateProvider) {
+
+  $translateProvider.useStaticFilesLoader({
+    prefix: 'languages/',
+    suffix: '.json'
+  });
+
+  $translateProvider.registerAvailableLanguageKeys(['en', 'fr'], {
+    'en-US': 'en',
+    'fr-FR': 'fr'
+  })
+
+  //$translateProvider.uniformLanguageTag('bcp47');
+  .preferredLanguage('en')
+    .fallbackLanguage('en')
+    //.determinePreferredLanguage()
+    .useSanitizeValueStrategy('escapeParameters');
 
   uiGmapGoogleMapApiProvider.configure({
     //    key: 'your api key',

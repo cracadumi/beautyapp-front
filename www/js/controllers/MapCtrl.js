@@ -48,7 +48,9 @@ angular.module('starter')
     });
 
     //watch location changes to center map
-    $scope.$watch('location', function(newVal, oldVal) {
+    //need this to be on rootScope level because searchbar is outside
+    //of this scope
+    $rootScope.$watch('location', function(newVal, oldVal) {
       if(angular.isObject(newVal)){
         $scope.updateRequestLocation(newVal);
       }

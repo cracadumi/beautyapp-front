@@ -1,9 +1,14 @@
-<ion-view view-title="Account" hide-nav-bar="true">
+<ion-view hide-nav-bar="false">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-light" ng-click="openSettings()">
+      <i class="icon ion-gear-a"></i>
+    </button>
+  </ion-nav-buttons>
   <ion-content class="profile-page">
     <div class="list card">
 
       <div class="top-content item item-avatar ">
-        <div class="ion-gear-a" ng-click="openSettings()"></div>
+        <!--<div class="ion-gear-a" ng-click="openSettings()"></div>-->
         <img src="img/avatar2.jpg">
         <h2>{{user.name}} {{user.name}}</h2>
         <p>{{user.username}} Member since  {{user.created_at}}</p>

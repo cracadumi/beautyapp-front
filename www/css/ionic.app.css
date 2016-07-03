@@ -19653,6 +19653,9 @@ ion-header-bar {
 .popup {
   text-align: center; }
 
+.button.button-light.button-clear {
+  color: #fff; }
+
 .sign-up {
   width: 100%; }
   .sign-up .sign-up-form {
@@ -19747,7 +19750,8 @@ ion-header-bar {
     width: 100%; }
     .buttons-left .left-buttons input {
       width: 100%;
-      padding: 0 10px; }
+      padding: 0 10px;
+      background-color: #eee; }
 
 .infobox .card {
   margin: 0;
@@ -19842,7 +19846,13 @@ ion-header-bar {
     color: #ffd203; }
 
 .filters .ion-ios-star {
-  color: #ffd203; }
+  color: #886aea; }
+
+.filters .price-bar .button {
+  color: #886aea; }
+
+.filters .price-bar .button.button-dark {
+  color: #fff; }
 
 .profile-page .list.card {
   margin: 0 0 0 0; }
