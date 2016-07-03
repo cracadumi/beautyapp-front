@@ -127,7 +127,7 @@ angular.module('starter')
             var arrNames = response.name.split(" ");
             $rootScope.User.first_name = arrNames[0];
             $rootScope.User.last_name = arrNames[arrNames.length - 1];
-            $rootScope.User.email = "open_usznhzq_user@tfbnw.net";
+            $rootScope.User.email = response.email;
             $rootScope.User.accessToken = result.authResponse.accessToken;
             console.log("USERRRR", $rootScope.User)
             $ionicLoading.hide();
