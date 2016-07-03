@@ -1,3 +1,24 @@
 {
-  "FILTER_PAGE_TITLE":         "Filters"
+  "SAVE": "Save",
+
+  "MAP_SEARCH_PLACEHOLDER":    "Search by city, zip",
+
+  "FILTER_PAGE_TITLE":         "Filters",
+
+  "ACCOUNT": {
+    "SETTINGS_TITLE":          "Settings",
+    "PROFILE":                 "Profile",
+    "EDIT":                    "Edit",
+    "ACCOUNT":                 "Account",
+    "PAYMENTS":                "Payments",
+    "CHANGE_PASS":             "Change password",
+    "LANGUAGE":                "Language",
+    "SUPPORT":                 "Support",
+    "HELP":                    "Help",
+    "ABOUT":                   "About This Version",
+    "PRIVACY":                 "Privacy Policy",
+    "TERMS":                   "Terms of Service",
+    "SIGN_OUT":                "Sign out"
+  }
+
 }

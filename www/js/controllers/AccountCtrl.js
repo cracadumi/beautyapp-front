@@ -8,10 +8,10 @@ angular.module('starter')
                                        $ionicLoading,
                                        $ionicHistory,
                                        $timeout,
-                                       $ionicPopup) {
+                                       $ionicPopup,
+                                       $translate) {
 
     var access_token = $localStorage.tokens.access_token;
-
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
       //TODO do we need to hide tab bar here ?
@@ -163,6 +163,11 @@ angular.module('starter')
         });
 
       }
+    };
+
+    $scope.setLanguage = function (langKey) {
+      console.log(langKey);
+      $translate.use(langKey);
     };
 
     //Move to Static pages

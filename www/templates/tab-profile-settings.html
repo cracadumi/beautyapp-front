@@ -1,7 +1,7 @@
-<ion-view view-title="Settings" hide-back-button="false">
+<ion-view view-title="{{'ACCOUNT.SETTINGS_TITLE' | translate}}" hide-back-button="false">
   <ion-nav-buttons side="right">
     <button class="button button-transparent " ng-click="clickOnSubmitUpdate()" >
-      Save
+      {{'SAVE' | translate}}
     </button>
   </ion-nav-buttons>
   <ion-content class="profile-settings">
@@ -9,7 +9,7 @@
 
 
       <div class="item item-divider">
-        Profile
+        {{'ACCOUNT.PROFILE' | translate}}
       </div>
       <div class="list">
         <a class="item item-icon-left">
@@ -21,7 +21,7 @@
         <div class="profile-picture">
           <img src="img/avatar2.jpg">
 
-          <div>Edit</div>
+          <div>{{'ACCOUNT.EDIT' | translate}}</div>
         </div>
         <a class="item item-icon-left ">
           <i class="icon ion-at"></i>
@@ -50,10 +50,10 @@
                   required
                   focus-me="focusInput"></textarea>
         <button class="button button-transparent"  style="display:none" id="save-button" ng-click="submitFormUpdate(userSettings.$valid)" >
-          Save
+          {{'SAVE' | translate}}
         </button>
         <div class="item item-divider">
-          Account
+          {{'ACCOUNT.ACCOUNT' | translate}}
         </div>
         <a class="item item-icon-left">
           <i class="icon ion-email"></i>
@@ -62,13 +62,13 @@
 
         <a class="item item-icon-left item-icon-right" ng-click="openSettingsPayments()">
           <i class="icon ion-card"></i>
-          Payments
+          {{'ACCOUNT.PAYMENTS' | translate}}
           <i class="icon  ion-ios-arrow-forward"></i>
         </a>
 
         <a class="item item-icon-left item-icon-right" ng-click="openSettingsChangePass()">
           <i class="icon ion-locked"></i>
-          Change Password
+          {{'ACCOUNT.CHANGE_PASS' | translate}}
           <i class="icon  ion-ios-arrow-forward"></i>
         </a>
 
@@ -87,32 +87,32 @@
         <label class="item item-input item-select item-icon-left ">
           <i class="icon ion-android-globe"></i>
           <div class="input-label">
-            Language
+            {{'ACCOUNT.LANGUAGE' | translate}}
           </div>
-          <select required tabindex="7" ng-model="language">
-            <option></option>
-            <option>English</option>
-            <option>French</option>
+          <select required tabindex="7" ng-model="language" ng-change="setLanguage(language)">
+            <option value="" disabled hidden></option>
+            <option ng-selected="true" value="en">English</option>
+            <option value="fr">French</option>
           </select >
         </label>
 
         <div class="item item-divider">
-          Support
+          {{'ACCOUNT.SUPPORT' | translate}}
         </div>
         <a class="item item-icon-right" ng-click="goToSettingsHelp()">
-          Help
+          {{'ACCOUNT.HELP' | translate}}
           <i class="icon  ion-ios-arrow-forward"></i>
         </a>
         <a class="item item-icon-right" ng-click="goToSettingsAbout()">
-          About This Version
+          {{'ACCOUNT.ABOUT' | translate}}
           <i class="icon  ion-ios-arrow-forward"></i>
         </a>
         <a class="item item-icon-right" ng-click="goToSettingsPolicy()">
-          Privacy Policy
+          {{'ACCOUNT.PRIVACY' | translate}}
           <i class="icon  ion-ios-arrow-forward"></i>
         </a>
         <a class="item item-icon-right" ng-click="goToSettingsTerms()">
-          Terms of Service
+          {{'ACCOUNT.TERMS' | translate}}
           <i class="icon  ion-ios-arrow-forward"></i>
         </a>
 
@@ -120,7 +120,7 @@
 
         </div>
         <a class="item item-icon-right" ng-click="signOut()">
-          Sign out
+          {{'ACCOUNT.SIGN_OUT' | translate}}
           <i class="icon  ion-ios-arrow-forward"></i>
         </a>
       </div>
