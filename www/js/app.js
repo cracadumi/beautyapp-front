@@ -213,6 +213,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'ion-float
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/signup');
+  $urlRouterProvider.otherwise('/tab/signin');
 
 });

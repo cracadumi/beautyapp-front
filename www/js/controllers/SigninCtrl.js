@@ -4,9 +4,9 @@ angular.module('starter')
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
       $rootScope.hideTabs = true;
-      if ($localStorage.CurrentUser) {
-        $state.go('tab.profile');
-      }
+      //if ($localStorage.CurrentUser) {
+      //  $state.go('tab.profile');
+      //}
     });
 
     //show tab bar when user signings successfully
@@ -22,7 +22,49 @@ angular.module('starter')
       console.log("done");
     }
 
+$scope.SignInFB = function(){
+  var request = new FormData();
+  $ionicLoading.show();
+  request.append('grant_type', 'assertion');
+  request.append('assertion', $localStorage.FBtoken);
 
+  AuthService.SignInFB(request).then(function (data) {
+      //OneSignal.setDeviceTags();
+      $ionicLoading.hide();
+    var accessToken = data.data.access_token;
+      AuthService.showUser(accessToken).then(function (user) {
+        console.log(user);
+        $localStorage.CurrentUser = user;
+        $state.go('tab.map')
+        //console.log(user, $localStorage.CurrentUser);
+
+      })
+        .catch(function (error) {
+          console.log("*** error3 : " + angular.toJson(error.status));
+          $ionicLoading.hide();
+          //
+
+
+        });
+      console.log(data);
+
+
+
+      //ModalService.hide("auth-modal");
+      //$state.go("app.home");
+    },
+    function (error) {
+      $ionicLoading.hide();
+
+      console.log("*** error registering new user: " + angular.toJson(error));
+      //if (!error) {
+      //  $scope.showAlert(CONSTANTS.MSG_FACEBOOK_CONNECT_ERROR);
+      //} else if (error === "duplicate") {
+      //  $scope.showAlert(CONSTANTS.MSG_FACEBOOK_ALREADYREGISTERED);
+      //  $scope.error = error;
+      //}
+    });
+}
     $scope.submitForm = function (isFormValid) {
       if (isFormValid) {
         $ionicLoading.show();
@@ -42,6 +84,7 @@ angular.module('starter')
             console.log(data)
             var access_token = data.access_token;
             $localStorage.tokens = data;
+
             AuthService.showUser(access_token).then(function (user) {
               console.log(user);
               $localStorage.CurrentUser = user;

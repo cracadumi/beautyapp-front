@@ -23,9 +23,7 @@ angular.module('starter')
       $scope.user = $localStorage.CurrentUser;
       $scope.user.created_at = $scope.user.created_at.substr(0, 4);
       //}
-      $scope.updateGrossOptions = function () {
 
-      }
     });
 
     $scope.toggleField = function ($event) {
