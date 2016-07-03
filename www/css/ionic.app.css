@@ -19843,7 +19843,13 @@ ion-header-bar {
     color: #ffd203; }
 
 .filters .ion-ios-star {
-  color: #ffd203; }
+  color: #886aea; }
+
+.filters .price-bar .button {
+  color: #886aea; }
+
+.filters .price-bar .button.button-dark {
+  color: #fff; }
 
 .profile-page .list.card {
   margin: 0 0 0 0; }

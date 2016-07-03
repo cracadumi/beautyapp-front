@@ -1,23 +1,38 @@
 <ion-view view-title="{{'FILTER_PAGE_TITLE' | translate}}" hide-back-button="false">
-  <ion-nav-buttons side="secondary">
+  <!--<ion-nav-buttons side="secondary">
     <button class="button button-clear header-item button-light" ng-click="applyFilters()">
       Apply filters
     </button>
-  </ion-nav-buttons>
+  </ion-nav-buttons>-->
   <ion-content class="filters">
       <ion-list>
         <div class="item item-divider">
           Beauty Services
         </div>
-        <ion-radio ng-repeat="item in filterValues.categories"
+        <!--<ion-radio ng-repeat="item in filterValues.categories"
                    ng-value="item"
                    ng-checked="item === filters.category"
                    ng-model="filters.category">
           {{ item }}
-        </ion-radio>
+        </ion-radio>-->
+
+        <div ng-repeat="item in filterValues.categories">
+          <a ng-click="chooseCategory($index)"
+             class="col col-25"
+             style="padding:0;display:block;float:left;margin:0;border:none;line-height:0px;font-size:0px;">
+            <img src="./img/icons/nail.png" style="width:100%;margin:0;padding:0;">
+            {{item}}
+          </a>
+        </div>
 
         <div class="item item-divider">
           Price
+        </div>
+        <div class="button-bar price-bar">
+          <a ng-repeat="item in filterValues.priceRanges track by $index"
+             class="button"
+             ng-click="updatePriceFilter($index)"
+             ng-class="{'button-dark': $index === filters.price}">{{item}}</a>
         </div>
         <!--<label class="item item-input item-select">
           <div class="input-label">
@@ -48,6 +63,12 @@
         </div>
 
       </ion-list>
+    <div class="padding">
+      <button class="button button-block button-royal icon-right ion-log-out" ng-click="applyFilters()">
+        Apply filters
+      </button>
+    </div>
+
   </ion-content>
 
 </ion-view>

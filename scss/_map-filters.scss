@@ -1,8 +1,21 @@
 
 .filters {
   .ion-ios-star {
-    color: $star-gold-color;
+    color: $royal;
   }
+
+  .price-bar {
+    .button {
+      color: $royal;
+    }
+
+    .button.button-dark {
+      color: $light;
+    }
+  }
+
+
+
 }
 
 

@@ -12,8 +12,8 @@ angular.module('starter')
       $ionicHistory.goBack();
     };
 
-    $scope.updatePriceFilter = function () {
-      $scope.filters.price = angular.copy($scope.data.price.value);
+    $scope.updatePriceFilter = function (price) {
+      $scope.filters.price = price;//angular.copy($scope.data.price.value);
     };
 
   });
