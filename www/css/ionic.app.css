@@ -19848,6 +19848,21 @@ ion-header-bar {
 .filters .ion-ios-star {
   color: #886aea; }
 
+.filters .services {
+  padding: 5px 10px;
+  text-align: center;
+  vertical-align: bottom; }
+  .filters .services .services-item {
+    height: 90px;
+    vertical-align: bottom; }
+    .filters .services .services-item img {
+      max-height: 15vw;
+      max-width: 15vw;
+      line-height: 90px;
+      display: inline-block;
+      vertical-align: bottom;
+      margin: 0 0 8px 0; }
+
 .filters .price-bar .button {
   color: #886aea; }
 

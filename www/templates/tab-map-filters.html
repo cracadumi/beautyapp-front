@@ -16,13 +16,13 @@
           {{ item }}
         </ion-radio>-->
 
-        <div ng-repeat="item in filterValues.categories">
-          <a ng-click="chooseCategory($index)"
-             class="col col-25"
-             style="padding:0;display:block;float:left;margin:0;border:none;line-height:0px;font-size:0px;">
-            <img src="./img/icons/nail.png" style="width:100%;margin:0;padding:0;">
-            {{item}}
+        <div  class="row services">
+          <a ng-click="chooseCategory($index)" ng-repeat="item in filterValues.categories"
+             class="col col-25 services-item">
+            <img src="../img/icons-filter/{{item}}.png">
+            <span>  {{item}}</span>
           </a>
+
         </div>
 
         <div class="item item-divider">

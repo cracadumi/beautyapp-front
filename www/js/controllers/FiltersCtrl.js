@@ -3,6 +3,7 @@ angular.module('starter')
 
     $scope.filters = FiltersService.getFilters();
     $scope.filterValues = FiltersService.getFilterConstants();
+    console.log($scope.filterValues);
 
     $scope.data = {};
     $scope.data.price = $scope.filterValues.priceRanges[1]; // Default
@@ -15,5 +16,6 @@ angular.module('starter')
     $scope.updatePriceFilter = function (price) {
       $scope.filters.price = price;//angular.copy($scope.data.price.value);
     };
+
 
   });

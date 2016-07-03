@@ -114,11 +114,37 @@ angular.module("starter")
           });
         });
       };
+
+      var SignInFB = function (request) {
+        return $q(function (resolve, reject) {
+          $http.post(API_URL + "/oauth/token", request, {headers: {'Content-Type': undefined}}).then(function (res) {
+
+            resolve(res);
+            //$state.go("tab.map");
+          }).catch(function (error) {
+            console.log("*** error2 : " + angular.toJson(error));
+            if(error.status == "401"){
+              var showAlert = function() {
+                var alertPopup = $ionicPopup.alert({
+                  title: "Beautyapp",
+                  template: "You not registered with facebook account"
+                })};
+
+              showAlert();
+            }
+            $ionicLoading.hide();
+
+
+            //
+          });
+        });
+      }
       return {
         register: register,
         showUser: showUser,
         signOut: signOut,
         changePass: changePass,
         registerFB: registerFB,
+        SignInFB:SignInFB
       }
     }]);
