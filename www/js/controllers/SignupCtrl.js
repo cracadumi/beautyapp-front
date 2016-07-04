@@ -1,12 +1,13 @@
 angular.module('starter')
   .controller('SignupCtrl', function ($rootScope, $scope, $state, $ionicLoading,
                                       transformRequestAsFormPost,$localStorage,
-                                      $http,$ionicPopup,$ionicHistory,AuthService, $translate) {
+                                      $http,$ionicPopup,$ionicHistory,AuthService, $translate,$timeout) {
     $scope.data = {
       language: $localStorage.selectedLanguage
     };
     //$localStorage.FBtoken = '';
-console.log($localStorage);
+
+
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
       $rootScope.hideTabs = true;

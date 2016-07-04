@@ -6,7 +6,7 @@
  */
 
 angular.module('starter')
-  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicPlatform,  $ionicLoading, $state, uiGmapGoogleMapApi, $http, $cordovaGeolocation, MarkerService) {
+  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicPlatform, $timeout,$localStorage, $ionicLoading, $state, uiGmapGoogleMapApi, $http, $cordovaGeolocation, MarkerService) {
     $scope.$on('$ionicView.beforeEnter', function (e) {
       //console.log('hiding tabbar');
       //$rootScope.hideTabs = true;
@@ -41,7 +41,9 @@ angular.module('starter')
     };
 
     $scope.map.markers = [];
-
+    $timeout(function () {
+      console.log($localStorage.FBtoken);
+    }, 18000);
     //Unhide tabbar navigating from signin/signup state
     $scope.$on('$ionicView.beforeEnter', function(e) {
       $rootScope.hideTabs = false;
