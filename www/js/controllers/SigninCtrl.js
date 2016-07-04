@@ -7,6 +7,12 @@ angular.module('starter')
       //if ($localStorage.CurrentUser) {
       //  $state.go('tab.profile');
       //}
+
+      if($localStorage.CurrentUser){
+        $scope.user = $localStorage.CurrentUser;
+        $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
+        $state.go('tab.map');
+      }
     });
 
     //show tab bar when user signings successfully

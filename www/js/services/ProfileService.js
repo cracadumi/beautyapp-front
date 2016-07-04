@@ -20,7 +20,9 @@ angular.module("starter")
       var updateProfile = function (User) {
         var fd = new FormData;
 
-        fd.append('user[bio]', User);
+          fd.append('user[bio]', User);
+
+
         return $q(function (resolve, reject) {
           $http.put(API_URL + "/api/v1/me?access_token=" + $localStorage.tokens.access_token,fd,{
             headers: {'Content-Type': undefined}

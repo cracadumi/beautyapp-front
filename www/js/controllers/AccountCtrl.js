@@ -135,9 +135,13 @@ angular.module('starter')
     };
 
     $scope.userData = {};
-    $scope.userData.textarea = $localStorage.CurrentUser.bio;
+    $scope.userData.bio = $localStorage.CurrentUser.bio;
     //console.log($localStorage.CurrentUser.bio);
     $scope.submitFormUpdate = function (isFormValid) {
+      console.log($scope.userData);
+      //for(var i =0;)
+      var field = $scope.userData;
+      console.log(field);
       var message;
       $scope.showAlert = function () {
         var alertPopup = $ionicPopup.alert({
@@ -146,9 +150,11 @@ angular.module('starter')
       };
 
       if (isFormValid) {
+        //var fd = new FormData;
 
+        //fd.append('user[bio]', $scope.userData.textarea);
         $ionicLoading.show();
-        ProfileService.updateProfile($scope.userData.textarea).then(function (data) {
+        ProfileService.updateProfile($scope.userData.bio).then(function (data) {
           //console.log(data);
           AuthService.showUser($localStorage.tokens.access_token).then(function (user) {
             //console.log(user);
@@ -188,5 +194,8 @@ angular.module('starter')
 
     $scope.goToSettingsTerms = function(){
       $state.go('tab.profile-settings-terms');
+    }
+    $scope.changePicture = function(){
+
     }
   });

@@ -5,19 +5,20 @@ angular.module('starter')
     $scope.data = {
       language: $localStorage.selectedLanguage
     };
-
+    //$localStorage.FBtoken = '';
+console.log($localStorage);
     $scope.$on('$ionicView.beforeEnter', function (e) {
       console.log('hiding tabbar');
       $rootScope.hideTabs = true;
       //console.log()
-      //if (!$localStorage.CurrentUser) {
-      //  $state.go('tab.signin');
-      //}
-      //if($localStorage.CurrentUser){
-      ////$scope.user = $localStorage.CurrentUser;
-      ////$scope.user.created_at = $scope.user.created_at.substr(0,4) ;
-      //  $state.go('tab.map');
-      //}
+      if (!$localStorage.CurrentUser) {
+        $state.go('tab.signin');
+      }
+      if($localStorage.CurrentUser){
+      $scope.user = $localStorage.CurrentUser;
+      $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
+        $state.go('tab.map');
+      }
     });
 
     $scope.signUpEmail = function () {
@@ -169,7 +170,7 @@ angular.module('starter')
       fd.append('user[email]',$rootScope.User.email);
       fd.append('user[name]',$rootScope.User.first_name);
       fd.append('user[surname]',$rootScope.User.last_name);
-      fd.append('user[username]','@' + $scope.facebookUser);
+      fd.append('user[username]', $scope.facebookUser.username);
       //
       fd.append('user[facebook_token]',$rootScope.User.accessToken);
       if (isFormValid) {
