@@ -5,7 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'angular-cloudinary', 'ion-floating-menu', 'ionic.rating', 'google.places', 'starter.services','ngStorage', 'pascalprecht.translate'])
+angular.module('starter', ['ionic', 'ngCordova',
+  'uiGmapgoogle-maps', 'angular-cloudinary',
+  'ion-floating-menu', 'ionic.rating', 'google.places',
+  'starter.services','ngStorage', 'pascalprecht.translate','ion-profile-picture'])
 
 .run( function($ionicPlatform) {
   $ionicPlatform.ready(function() {

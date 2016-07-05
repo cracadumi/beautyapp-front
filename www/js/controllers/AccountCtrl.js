@@ -11,8 +11,10 @@ angular.module('starter')
                                        $ionicPopup,
                                        $translate,
                                        cloudinary) {
+if($localStorage.tokens){
+  var access_token = $localStorage.tokens.access_token;
+}
 
-    var access_token = $localStorage.tokens.access_token;
 
     $scope.data = {
       language: $localStorage.selectedLanguage
@@ -24,7 +26,10 @@ angular.module('starter')
       //  $state.go('tab.signin');
       //}
       //else{
-      $scope.user = $localStorage.CurrentUser;
+      if($localStorage.CurrentUser){
+        $scope.user = $localStorage.CurrentUser;
+      }
+
       $scope.user.created_at = $scope.user.created_at.substr(0, 4);
       //}
 

@@ -19980,7 +19980,8 @@ ion-header-bar {
   position: absolute;
   z-index: 3;
   top: 1px;
-  right: 0px; }
+  right: 0px;
+  color: transparent; }
   .profile-settings .list .profile-picture img {
     border-radius: 50%;
     max-width: 70px;
@@ -19992,6 +19993,13 @@ ion-header-bar {
 .profile-settings .list .item .icon:before {
   color: #b3b3b3;
   font-size: 30px; }
+
+.profile-settings .myphoto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; }
+  .profile-settings .myphoto input[type="file"] {
+    font-size: 0; }
 
 .profile-settings .change-password .item input {
   padding: 0 15px 0 7px; }
