@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'ion-floating-menu', 'ionic.rating', 'google.places', 'starter.services','ngStorage', 'pascalprecht.translate'])
+angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'angular-cloudinary', 'ion-floating-menu', 'ionic.rating', 'google.places', 'starter.services','ngStorage', 'pascalprecht.translate'])
 
 .run( function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,8 +22,15 @@ angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'ion-float
     }
   });
 })
+  .config(function (cloudinaryProvider) {
+    cloudinaryProvider.config({
+      upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
+      cloud_name: 'dcrz5avtg', // required
+      //upload_preset: 'CLOUDINARY_URL=cloudinary://956199541213262:pLRbP-al3nO_bhnA7wXm-O1XoKg@dcrz5avtg', // optional
+    });
+  })
 
-.config(function(CONFIG, $ionicConfigProvider, $stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider, $translateProvider) {
+.config(function(CONFIG, $ionicConfigProvider, $stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider, $translateProvider,cloudinaryProvider) {
 
   var langKey = angular.fromJson(localStorage.getItem('ngStorage-selectedLanguage'));
   if (!langKey) {
@@ -240,6 +247,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'uiGmapgoogle-maps', 'ion-float
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/signin');
+  $urlRouterProvider.otherwise('/tab/map');
 
 });
