@@ -20,7 +20,7 @@
         <div  class="row services">
           <a ng-click="chooseCategory($index)" ng-repeat="item in filterValues.categories"
              class="col col-25 services-item">
-            <img src="../img/icons-filter/{{item}}.png">
+            <img ng-src="../img/icons-filter/{{item | lowercase}}.png">
             <span>  {{item}}</span>
           </a>
 
