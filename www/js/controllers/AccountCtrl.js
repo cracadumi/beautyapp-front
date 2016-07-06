@@ -9,8 +9,7 @@ angular.module('starter')
                                        $ionicHistory,
                                        $timeout,
                                        $ionicPopup,
-                                       $translate,
-                                       cloudinary) {
+                                       $translate) {
 if($localStorage.tokens){
   var access_token = $localStorage.tokens.access_token;
 }
