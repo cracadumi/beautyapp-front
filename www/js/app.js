@@ -8,7 +8,7 @@
 angular.module('starter', ['ionic', 'ngCordova',
   'uiGmapgoogle-maps', 'angular-cloudinary',
   'ion-floating-menu', 'ionic.rating', 'google.places',
-  'starter.services','ngStorage', 'pascalprecht.translate','ion-profile-picture'])
+  'starter.services','ngStorage', 'pascalprecht.translate'])
 
 .run( function($ionicPlatform) {
   $ionicPlatform.ready(function() {
