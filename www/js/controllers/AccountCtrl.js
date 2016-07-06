@@ -200,22 +200,7 @@ if($localStorage.tokens){
 
     $scope.goToSettingsTerms = function(){
       $state.go('tab.profile-settings-terms');
-    }
-
-
-    $scope.$watch('myFile', function(myFile) {
-      // Use the service to upload the file
-      console.log("progress");
-      cloudinary.upload(myFile, { upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
-        cloud_name: 'dcrz5avtg' })
-        // This returns a promise that can be used for result handling
-        .then(function (resp) {
-        console.log('all done!',resp);
-      })
-        .catch(function(error){
-          console.log(error);
-        });
-    })
+    };
 
     $scope.changePicture = function(){
 
