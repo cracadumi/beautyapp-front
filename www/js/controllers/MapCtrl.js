@@ -59,9 +59,6 @@ angular.module('starter')
     };
 
     $scope.map.markers = [];
-    /*$timeout(function () {
-      console.log($localStorage.FBtoken);
-    }, 18000);*/
     //Unhide tabbar navigating from signin/signup state
     $scope.$on('$ionicView.beforeEnter', function(e) {
       $rootScope.hideTabs = false;
