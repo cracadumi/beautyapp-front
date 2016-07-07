@@ -143,9 +143,9 @@ angular.module('starter')
     $scope.userData = {};
     $scope.userData.bio = $localStorage.CurrentUser.bio;
     if($localStorage.CurrentUser.profile_picture) {
-      $scope.userData.profile_picture = {
-        s70: $localStorage.CurrentUser.profile_picture.s70
-      };
+      $scope.userData.profile_picture = $localStorage.CurrentUser.profile_picture;
+    } else {
+      $scope.userData.profile_picture = {};
     }
 
     //console.log($localStorage.CurrentUser.bio);
