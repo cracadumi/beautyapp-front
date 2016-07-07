@@ -14,7 +14,9 @@ angular.module('starter', [
   'google.places',
   'starter.services',
   'ngStorage',
-  'pascalprecht.translate'])
+  'pascalprecht.translate',
+  'ion-profile-picture',
+  'angular-cloudinary',])
 
 .run( function($ionicPlatform) {
   $ionicPlatform.ready(function() {

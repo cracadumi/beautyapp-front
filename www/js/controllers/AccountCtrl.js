@@ -151,26 +151,25 @@ angular.module('starter')
     $scope.userData = {};
     $scope.userData.bio = $localStorage.CurrentUser.bio;
     //console.log($localStorage.CurrentUser.bio);
-    $scope.submitFormUpdate = function () {
-
-      //console.log($scope.userData);
+    $scope.submitFormUpdate = function (isFormValid) {
+      console.log($scope.userData);
       //for(var i =0;)
-      var field = $scope.user.bio;
-      console.log("form update", field);
+      var field = $scope.userData;
+      console.log(field);
       var message;
       $scope.showAlert = function () {
         var alertPopup = $ionicPopup.alert({
           title: message,
         })
       };
-console.log(field);
-      if (!!field) {
+
+      if (isFormValid) {
         //var fd = new FormData;
         console.log("form is going to update!");
         //fd.append('user[bio]', $scope.userData.textarea);
         $ionicLoading.show();
-        ProfileService.updateProfile(field).then(function (data) {
-          console.log("updateProfile", data);
+        ProfileService.updateProfile($scope.userData.bio).then(function (data) {
+          //console.log(data);
           AuthService.showUser($localStorage.tokens.access_token).then(function (user) {
             //console.log(user);
             $localStorage.CurrentUser = user;
