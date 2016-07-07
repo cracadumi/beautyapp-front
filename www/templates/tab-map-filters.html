@@ -17,11 +17,13 @@
           {{ item }}
         </ion-radio>-->
 
-        <div  class="row services">
-          <a ng-click="chooseCategory($index)" ng-repeat="item in filterValues.categories"
-             class="col col-25 services-item">
-            <img ng-src="../img/icons-filter/{{item | lowercase}}.png">
-            <span>  {{item}}</span>
+        <div class="row services">
+          <a ng-click="toggleCategoryFilter($index)"
+             ng-repeat="item in filterValues.categories"
+             class="col col-25 services-item"
+             ng-class="{'dark-bg': item.isSelected}">
+            <img ng-src="../img/icons-filter/{{item.label + (item.isSelected ? '2' : '')}}.png">
+            <span ng-class="{'light': item.isSelected}">  {{item.label | capitalize}}</span>
           </a>
 
         </div>

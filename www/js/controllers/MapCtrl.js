@@ -6,12 +6,30 @@
  */
 
 angular.module('starter')
-  .controller('MapCtrl', function($q, $rootScope, $scope, $ionicPlatform, $timeout,$localStorage, $ionicLoading, $state, uiGmapGoogleMapApi, $http, $cordovaGeolocation, MarkerService) {
-    $scope.$on('$ionicView.beforeEnter', function (e) {
-      //console.log('hiding tabbar');
-      //$rootScope.hideTabs = true;
-
-
+  .controller('MapCtrl', function(
+    $q,
+    $state,
+    $scope,
+    $rootScope,
+    $ionicPlatform,
+    $timeout,
+    $localStorage,
+    $ionicLoading,
+    $ionicHistory,
+    uiGmapGoogleMapApi,
+    $http,
+    $cordovaGeolocation,
+    MarkerService
+  ) {
+    $scope.$on('$ionicView.enter', function (e) {
+      $rootScope.hideTabs = false;
+      //check if user is logged in, if not redirect to login page
+      if (!$localStorage.CurrentUser) {
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        $state.go('tab.signup');
+      }
     });
     var DEFAULT_MAP_LOC = new google.maps.LatLng(43.07493,-89.381388);
     $scope.location = '';
@@ -41,9 +59,9 @@ angular.module('starter')
     };
 
     $scope.map.markers = [];
-    $timeout(function () {
+    /*$timeout(function () {
       console.log($localStorage.FBtoken);
-    }, 18000);
+    }, 18000);*/
     //Unhide tabbar navigating from signin/signup state
     $scope.$on('$ionicView.beforeEnter', function(e) {
       $rootScope.hideTabs = false;

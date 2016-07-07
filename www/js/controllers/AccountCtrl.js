@@ -40,7 +40,6 @@ angular.module('starter')
         $state.go('tab.signin');
       }
 
-      //}
     });
 
     $scope.toggleField = function ($event) {
@@ -149,9 +148,8 @@ angular.module('starter')
       console.log("move");
     };
 
-
-
-
+    $scope.userData = {};
+    $scope.userData.bio = $localStorage.CurrentUser.bio;
     //console.log($localStorage.CurrentUser.bio);
     $scope.submitFormUpdate = function () {
 
@@ -214,21 +212,66 @@ console.log(field);
     }
 
 
-    //$scope.$watch('myFile', function(myFile) {
-    //  // Use the service to upload the file
-    //  console.log("progress");
-    //  cloudinary.upload(myFile, { upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
-    //    cloud_name: 'dcrz5avtg' })
-    //    // This returns a promise that can be used for result handling
-    //    .then(function (resp) {
-    //    console.log('all done!',resp);
-    //  })
-    //    .catch(function(error){
-    //      console.log(error);
-    //    });
-    //})
+    $scope.$watch('myFile', function(myFile) {
+      // Use the service to upload the file
+      console.log("progress");
+      cloudinary.upload(myFile, { upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
+        cloud_name: 'dcrz5avtg' })
+        // This returns a promise that can be used for result handling
+        .then(function (resp) {
+        console.log('all done!',resp);
+      })
+        .catch(function(error){
+          console.log(error);
+        });
+    })
 
     $scope.changePicture = function(){
+      var options = {
+        quality: 100,
+        destinationType: Camera.DestinationType.DATA_URL,
+        allowEdit: true,
+        encodingType: Camera.EncodingType.PNG,
+        saveToPhotoAlbum: false,
+        correctOrientation: true,
+        targetWidth: 140,
+        targetHeight: 140
+      };
 
-    }
+        $ionicActionSheet.show({
+          titleText: "Select image sour",
+          buttons: [
+            { text: "<i class=\"icon ion-camera\"></i> Camera" },
+            { text: "<i class=\"icon ion-image\"></i> Gallery" }
+          ],
+          cancelText: "Cancel",
+          cancel: angular.noop,
+          buttonClicked: function (index) {
+            switch (index) {
+              case 0:
+                options.sourceType = Camera.PictureSourceType.CAMERA;
+                $cordovaCamera.getPicture(options).then(function (imageURI) {
+                  // convert base64 to file
+                  //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
+                  //$scope.stagePhoto(file);
+                  $scope.userData.profile_picture.s70 = "data:image/png;base64," + imageURI;
+                }, function (err) {
+                  console.log(err);
+                });
+                break;
+              case 1:
+                options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
+                $cordovaCamera.getPicture(options).then(function (imageURI) {
+                  //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
+                  //$scope.stagePhoto(file);
+                  $scope.userData.profile_picture.s70 = "data:image/png;base64," + imageURI;
+                }, function (err) {
+                  console.log(err);
+                });
+                break;
+            }
+            return true;
+          }
+        });
+    };
   });

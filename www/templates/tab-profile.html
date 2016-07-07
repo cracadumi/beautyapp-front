@@ -10,7 +10,7 @@
 
       <div class="top-content item item-avatar ">
         <!--<div class="ion-gear-a" ng-click="openSettings()"></div>-->
-        <img src="img/avatar2.jpg">
+        <img ng-src="{{ user.profile_picture.s70 || 'img/no_avatar.jpg'}}">
         <h2>{{user.name}} {{user.name}}</h2>
         <p>{{user.username}} Member since  {{user.created_at}}</p>
       </div>

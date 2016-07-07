@@ -5,10 +5,22 @@ angular.module("starter")
 
       var FILTER_CONST = {
         categories: [
-          'Coaching',
-          'Hair',
-          'Makeup',
-          'Nails'
+          {
+            label: 'coaching',
+            isSelected: false
+          },
+          {
+            label: 'hair',
+            isSelected: false
+          },
+          {
+            label: 'makeup',
+            isSelected: true
+          },
+          {
+            label: 'nails',
+            isSelected: false
+          }
         ],
         priceRanges: [
           '$', '$$', '$$$'
@@ -23,7 +35,7 @@ angular.module("starter")
       };
 
       var _filters = {
-        category: 'Nails',
+        categories: FILTER_CONST.categories,
         price: 1,
         rating: 4,
         distance: 18

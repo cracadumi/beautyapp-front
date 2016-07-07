@@ -9,7 +9,6 @@
   z-index:3;
   top:1px;
   right:0px;
-  color:transparent;
   img{
     border-radius: 50%;
     max-width:70px;
@@ -31,14 +30,6 @@
           font-size: 30px;
         }
       }
-    }
-  }
-  .myphoto{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    input[type="file"] {
-      font-size: 0;
     }
   }
   .change-password{

@@ -19,18 +19,10 @@
 
         </a>
 
-        <div class="profile-picture">
-          <!--<img src="img/avatar2.jpg">-->
-          <!--<img cl-src="img/avatar2.jpg"-->
-               <!--width="100"-->
-               <!--height="100"-->
-               <!--crop="fill"-->
-               <!--dpr="auto"-->
-               <!--fetch-format="auto"-->
-               <!--alt="">-->
-          <ion-profile-picture ng-model="myPicture" class="myphoto"/>
+        <div class="profile-picture" ng-click="changePicture()">
+          <img ng-src="{{ userData.profile_picture.s70 || 'img/no_avatar.jpg'}}">
 
-          <div ng-click="changePicture()">{{'ACCOUNT.EDIT' | translate}}</div>
+          <div>{{'ACCOUNT.EDIT' | translate}}</div>
         </div>
         <a class="item item-icon-left ">
           <i class="icon ion-at"></i>
@@ -40,7 +32,7 @@
 
         <a class="item item-icon-left" ng-click="toggleField();focusInput=true">
           <i class="icon ion-compose"></i>
-          Bio <span ng-if="user.bio">...</span>
+          Bio <span ng-if="userData.bio">...</span>
           <!--<span class="item-note">-->
           <!--Grammy-->
           <!--</span>-->
