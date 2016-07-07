@@ -29,6 +29,7 @@ angular.module('starter')
       //else{
       if($localStorage.CurrentUser){
         $scope.user = $localStorage.CurrentUser;
+        console.log($localStorage.CurrentUser);
       }
 
       $scope.user.created_at = $scope.user.created_at.substr(0, 4);
@@ -143,13 +144,14 @@ angular.module('starter')
     $scope.userData = {};
     $scope.userData.bio = $localStorage.CurrentUser.bio;
     if($localStorage.CurrentUser.profile_picture) {
-      $scope.userData.profile_picture = {
-        s70: $localStorage.CurrentUser.profile_picture.s70
-      };
+      $scope.userData.profile_picture = $localStorage.CurrentUser.profile_picture;
+    }
+    else{
+      $scope.userData.profile_picture = {};
     }
 
     //console.log($localStorage.CurrentUser.bio);
-    $scope.submitFormUpdate = function (isFormValid) {
+    $scope.submitFormUpdate = function () {
       console.log($scope.userData);
       //for(var i =0;)
       var field = $scope.userData;
@@ -161,13 +163,14 @@ angular.module('starter')
         })
       };
 
-      if (isFormValid) {
+      if (field) {
         //var fd = new FormData;
 
         //fd.append('user[bio]', $scope.userData.textarea);
         $ionicLoading.show();
         ProfileService.updateProfile($scope.userData).then(function (data) {
-          //console.log(data);
+          console.log($scope.userData);
+          console.log("SUCCESS", data);
           AuthService.showUser($localStorage.tokens.access_token).then(function (user) {
             //console.log(user);
             $localStorage.CurrentUser = user;
