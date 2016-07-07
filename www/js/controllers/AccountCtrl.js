@@ -11,16 +11,21 @@ angular.module('starter')
                                        $ionicPopup,
                                        $translate,
                                        cloudinary) {
-if($localStorage.tokens){
-  var access_token = $localStorage.tokens.access_token;
-}
 
 
-    $scope.data = {
-      language: $localStorage.selectedLanguage
-    };
 
     $scope.$on('$ionicView.beforeEnter', function (e) {
+      if($localStorage.tokens){
+        var access_token = $localStorage.tokens.access_token;
+      }
+      $scope.userData = {};
+      if($localStorage.CurrentUser && $scope.userData.bio ){
+        $scope.userData.bio = $localStorage.CurrentUser.bio;
+      }
+      $scope.data = {
+        language: $localStorage.selectedLanguage
+      };
+
       $rootScope.hideTabs = false;
       //if (!$localStorage.CurrentUser) {
       //  $state.go('tab.signin');
@@ -28,11 +33,14 @@ if($localStorage.tokens){
       //else{
       if($localStorage.CurrentUser){
         $scope.user = $localStorage.CurrentUser;
+        $scope.user.created_at = $scope.user.created_at.substr(0, 4);
+        console.log($localStorage.CurrentUser);
+      }
+      if(!$localStorage.CurrentUser){
+        $state.go('tab.signin');
       }
 
-      $scope.user.created_at = $scope.user.created_at.substr(0, 4);
       //}
-
     });
 
     $scope.toggleField = function ($event) {
@@ -75,6 +83,7 @@ if($localStorage.tokens){
         delete $localStorage.tokens;
         delete $localStorage.CurrentUser;
         console.log(data);
+        console.log($localStorage);
         $state.go('tab.signin');
         $ionicLoading.hide();
       })
@@ -140,28 +149,30 @@ if($localStorage.tokens){
       console.log("move");
     };
 
-    $scope.userData = {};
-    $scope.userData.bio = $localStorage.CurrentUser.bio;
+
+
+
     //console.log($localStorage.CurrentUser.bio);
-    $scope.submitFormUpdate = function (isFormValid) {
-      console.log($scope.userData);
+    $scope.submitFormUpdate = function () {
+
+      //console.log($scope.userData);
       //for(var i =0;)
-      var field = $scope.userData;
-      console.log(field);
+      var field = $scope.user.bio;
+      console.log("form update", field);
       var message;
       $scope.showAlert = function () {
         var alertPopup = $ionicPopup.alert({
           title: message,
         })
       };
-
-      if (isFormValid) {
+console.log(field);
+      if (!!field) {
         //var fd = new FormData;
-
+        console.log("form is going to update!");
         //fd.append('user[bio]', $scope.userData.textarea);
         $ionicLoading.show();
-        ProfileService.updateProfile($scope.userData.bio).then(function (data) {
-          //console.log(data);
+        ProfileService.updateProfile(field).then(function (data) {
+          console.log("updateProfile", data);
           AuthService.showUser($localStorage.tokens.access_token).then(function (user) {
             //console.log(user);
             $localStorage.CurrentUser = user;
@@ -203,19 +214,19 @@ if($localStorage.tokens){
     }
 
 
-    $scope.$watch('myFile', function(myFile) {
-      // Use the service to upload the file
-      console.log("progress");
-      cloudinary.upload(myFile, { upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
-        cloud_name: 'dcrz5avtg' })
-        // This returns a promise that can be used for result handling
-        .then(function (resp) {
-        console.log('all done!',resp);
-      })
-        .catch(function(error){
-          console.log(error);
-        });
-    })
+    //$scope.$watch('myFile', function(myFile) {
+    //  // Use the service to upload the file
+    //  console.log("progress");
+    //  cloudinary.upload(myFile, { upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
+    //    cloud_name: 'dcrz5avtg' })
+    //    // This returns a promise that can be used for result handling
+    //    .then(function (resp) {
+    //    console.log('all done!',resp);
+    //  })
+    //    .catch(function(error){
+    //      console.log(error);
+    //    });
+    //})
 
     $scope.changePicture = function(){
 

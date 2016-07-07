@@ -12,9 +12,9 @@ angular.module('starter')
       console.log('hiding tabbar');
       $rootScope.hideTabs = true;
       //console.log()
-      if (!$localStorage.CurrentUser) {
-        $state.go('tab.signin');
-      }
+      //if (!$localStorage.CurrentUser) {
+      //  $state.go('tab.signin');
+      //}
       if($localStorage.CurrentUser){
       $scope.user = $localStorage.CurrentUser;
       $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
