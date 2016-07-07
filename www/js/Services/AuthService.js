@@ -24,18 +24,52 @@ angular.module("starter")
 
 
       var register = function (User) {
+        User.email.toLowerCase();
+        var fd = new FormData();
+        fd.append('user[role]',"user");
+        fd.append('user[password]',User.password);
+        fd.append('user[email]',User.email);
+        fd.append('user[name]',User.name);
+        fd.append('user[surname]',User.surname);
+        fd.append('user[username]','@' + User.username);
         return $q(function (resolve, reject) {
-          $http.post(API_URL + "/api/v1/registrations.json", User).then(function (res) {
-
-            //storeUser(res.data);
-            resolve(res.data);
+          $http.post(API_URL + "/api/v1/registrations.json", fd, {
+            headers: {'Content-Type': undefined}
+          }).then(function (res) {
+            login(User).then(function (userData) {
+              resolve(userData);
+            }, function (err) {
+              console.log('*** login error while registering: ' + angular.toJson(err));
+              reject(error);
+            });
           }, function (error) {
-            console.log("*** error : " + angular.toJson(error));
-            var msg;
-            if (error.data && error.data.code === "ConflictError") {
-              msg = "duplicate";
-            }
-            reject(msg);
+            console.log('*** register error: ' + angular.toJson(error));
+            reject(error.data);
+          });
+        });
+      };
+
+      var login = function (User) {
+        User.email.toLowerCase();
+        var fd = new FormData();
+        fd.append('grant_type', 'password');
+        fd.append('username', User.email);
+        fd.append('password', User.password);
+        return $q(function (resolve, reject) {
+          $http.post(API_URL + "/oauth/token", fd, {
+            headers: {'Content-Type': undefined}
+        }).then(function (res) {
+            var access_token = res.data.access_token;
+            $localStorage.tokens = res.data;
+            showUser(access_token).then(function (user) {
+              $localStorage.CurrentUser = user;
+              resolve(res.data);
+            }, function (error) {
+              reject(error);
+            });
+
+          }, function (error) {
+            reject(error);
           });
         });
       };
@@ -138,9 +172,11 @@ angular.module("starter")
             //
           });
         });
-      }
+      };
+
       return {
         register: register,
+        login: login,
         showUser: showUser,
         signOut: signOut,
         changePass: changePass,

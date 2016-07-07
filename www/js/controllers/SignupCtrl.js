@@ -9,15 +9,11 @@ angular.module('starter')
 
 
     $scope.$on('$ionicView.beforeEnter', function (e) {
-      console.log('hiding tabbar');
       $rootScope.hideTabs = true;
-      //console.log()
-      if (!$localStorage.CurrentUser) {
-        $state.go('tab.signin');
-      }
+
       if($localStorage.CurrentUser){
-      $scope.user = $localStorage.CurrentUser;
-      $scope.user.created_at = $scope.user.created_at.substr(0,4) ;
+      //$scope.user = $localStorage.CurrentUser;
+      //$scope.user.created_at = $scope.user.created_at.substr(0,4) ;
         $state.go('tab.map');
       }
     });
@@ -44,37 +40,11 @@ angular.module('starter')
     $scope.submitForm = function (isFormValid) {
       if (isFormValid) {
         $ionicLoading.show();
-        var User = $scope.user;
-        User.email.toLowerCase();
-
-        var fd = new FormData();
-        fd.append('user[role]',"user");
-        fd.append('user[password]',User.password);
-        fd.append('user[email]',User.email);
-        fd.append('user[name]',User.name);
-        fd.append('user[surname]',User.surname);
-        fd.append('user[username]','@' + User.username);
-        $http.post('http://beautyapp.herokuapp.com/api/v1/registrations.json', fd, {
-          //transformRequest: angular.identity,
-          headers: {'Content-Type': undefined}
-        })
-          .success(function(data){
+          AuthService.register($scope.user).then(function(data){
             console.log(data);
             $ionicLoading.hide();
-            var Popup = $ionicPopup.show({
-              title:  'You have been successfully registered',
-              scope: $scope,
-              buttons: [
-                { text: 'OK',
-                  type: 'button-positive',
-                  onTap: function(e){
-                    $state.go("tab.map");
-                  }
-                }
-              ]
-            });
-          })
-          .error(function(e){
+            $state.go("tab.map");
+          }, function(e){
             console.log(e.errors,e.errors.email);
             var error;
             $ionicLoading.hide();

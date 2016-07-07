@@ -75,7 +75,6 @@ if($localStorage.tokens){
       AuthService.signOut(access_token).then(function (data) {
         delete $localStorage.tokens;
         delete $localStorage.CurrentUser;
-        console.log(data);
         $state.go('tab.signin');
         $ionicLoading.hide();
       })
