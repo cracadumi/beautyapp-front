@@ -256,6 +256,5 @@ if($localStorage.tokens){
             return true;
           }
         });
-
     };
   });

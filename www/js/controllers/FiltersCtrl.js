@@ -17,5 +17,8 @@ angular.module('starter')
       $scope.filters.price = price;//angular.copy($scope.data.price.value);
     };
 
+    $scope.toggleCategoryFilter = function (index) {
+      $scope.filters.categories[index].isSelected = !$scope.filters.categories[index].isSelected;
+    };
 
   });

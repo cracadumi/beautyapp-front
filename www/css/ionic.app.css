@@ -19849,7 +19849,7 @@ ion-header-bar {
   color: #886aea; }
 
 .filters .services {
-  padding: 5px 10px;
+  padding: 0;
   text-align: center;
   vertical-align: bottom; }
   .filters .services .services-item {
