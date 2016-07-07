@@ -9,7 +9,9 @@ angular.module('starter')
                                        $ionicHistory,
                                        $timeout,
                                        $ionicPopup,
-                                       $translate) {
+                                       $translate,
+                                       $ionicActionSheet,
+                                       $cordovaCamera) {
 if($localStorage.tokens){
   var access_token = $localStorage.tokens.access_token;
 }
@@ -141,6 +143,12 @@ if($localStorage.tokens){
 
     $scope.userData = {};
     $scope.userData.bio = $localStorage.CurrentUser.bio;
+    if($localStorage.CurrentUser.profile_picture) {
+      $scope.userData.profile_picture = {
+        s70: $localStorage.CurrentUser.profile_picture.s70
+      };
+    }
+
     //console.log($localStorage.CurrentUser.bio);
     $scope.submitFormUpdate = function (isFormValid) {
       console.log($scope.userData);
@@ -159,7 +167,7 @@ if($localStorage.tokens){
 
         //fd.append('user[bio]', $scope.userData.textarea);
         $ionicLoading.show();
-        ProfileService.updateProfile($scope.userData.bio).then(function (data) {
+        ProfileService.updateProfile($scope.userData).then(function (data) {
           //console.log(data);
           AuthService.showUser($localStorage.tokens.access_token).then(function (user) {
             //console.log(user);
@@ -203,5 +211,69 @@ if($localStorage.tokens){
 
     $scope.changePicture = function(){
 
-    }
+        $ionicActionSheet.show({
+          titleText: "Select image sour",
+          buttons: [
+            { text: "<i class=\"icon ion-camera\"></i> Camera" },
+            { text: "<i class=\"icon ion-image\"></i> Gallery" }
+          ],
+          cancelText: "Cancel",
+          cancel: function () {
+            console.log("CANCELLED");
+          },
+          buttonClicked: function (index) {
+            switch (index) {
+              case 0:
+                console.log("CAMERA CLICKED");
+                var options = {
+                  quality: 100,
+                  destinationType: Camera.DestinationType.DATA_URL,
+                  sourceType: Camera.PictureSourceType.CAMERA,
+                  allowEdit: true,
+                  encodingType: Camera.EncodingType.PNG,
+                  //popoverOptions: CameraPopoverOptions,
+                  saveToPhotoAlbum: false,
+                  correctOrientation: true,
+                  targetWidth: 140,
+                  targetHeight: 140
+                };
+
+                $cordovaCamera.getPicture(options).then(function (imageURI) {
+                  // convert base64 to file
+                  //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
+                  //$scope.stagePhoto(file);
+                  $scope.userData.profile_picture.s70 = "data:image/png;base64," + imageURI;
+                }, function (err) {
+                  console.log(err);
+                });
+                break;
+              case 1:
+                console.log("GALLERY CLICKED", typeof Camera);
+                var options = {
+                  quality: 100,
+                  destinationType: Camera.DestinationType.DATA_URL,
+                  sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                  allowEdit: true,
+                  encodingType: Camera.EncodingType.PNG,
+                  //popoverOptions: CameraPopoverOptions,
+                  saveToPhotoAlbum: false,
+                  correctOrientation: true,
+                  targetWidth: 140,
+                  targetHeight: 140
+                };
+
+                $cordovaCamera.getPicture(options).then(function (imageURI) {
+                  //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
+                  //$scope.stagePhoto(file);
+                  $scope.userData.profile_picture.s70 = "data:image/png;base64," + imageURI;
+                }, function (err) {
+                  console.log(err);
+                });
+                break;
+            }
+            return true;
+          }
+        });
+
+    };
   });
