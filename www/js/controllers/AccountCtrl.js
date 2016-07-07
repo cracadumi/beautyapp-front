@@ -210,6 +210,16 @@ if($localStorage.tokens){
     };
 
     $scope.changePicture = function(){
+      var options = {
+        quality: 100,
+        destinationType: Camera.DestinationType.DATA_URL,
+        allowEdit: true,
+        encodingType: Camera.EncodingType.PNG,
+        saveToPhotoAlbum: false,
+        correctOrientation: true,
+        targetWidth: 140,
+        targetHeight: 140
+      };
 
         $ionicActionSheet.show({
           titleText: "Select image sour",
@@ -218,26 +228,11 @@ if($localStorage.tokens){
             { text: "<i class=\"icon ion-image\"></i> Gallery" }
           ],
           cancelText: "Cancel",
-          cancel: function () {
-            console.log("CANCELLED");
-          },
+          cancel: angular.noop,
           buttonClicked: function (index) {
             switch (index) {
               case 0:
-                console.log("CAMERA CLICKED");
-                var options = {
-                  quality: 100,
-                  destinationType: Camera.DestinationType.DATA_URL,
-                  sourceType: Camera.PictureSourceType.CAMERA,
-                  allowEdit: true,
-                  encodingType: Camera.EncodingType.PNG,
-                  //popoverOptions: CameraPopoverOptions,
-                  saveToPhotoAlbum: false,
-                  correctOrientation: true,
-                  targetWidth: 140,
-                  targetHeight: 140
-                };
-
+                options.sourceType = Camera.PictureSourceType.CAMERA;
                 $cordovaCamera.getPicture(options).then(function (imageURI) {
                   // convert base64 to file
                   //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
@@ -248,20 +243,7 @@ if($localStorage.tokens){
                 });
                 break;
               case 1:
-                console.log("GALLERY CLICKED", typeof Camera);
-                var options = {
-                  quality: 100,
-                  destinationType: Camera.DestinationType.DATA_URL,
-                  sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-                  allowEdit: true,
-                  encodingType: Camera.EncodingType.PNG,
-                  //popoverOptions: CameraPopoverOptions,
-                  saveToPhotoAlbum: false,
-                  correctOrientation: true,
-                  targetWidth: 140,
-                  targetHeight: 140
-                };
-
+                options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
                 $cordovaCamera.getPicture(options).then(function (imageURI) {
                   //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
                   //$scope.stagePhoto(file);
