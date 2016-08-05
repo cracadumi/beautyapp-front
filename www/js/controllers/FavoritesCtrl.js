@@ -9,6 +9,7 @@ angular.module('starter')
     //});
 
     $scope.chats = Chats.all();
+    console.log($scope.chats);
     $scope.remove = function(chat) {
       Chats.remove(chat);
     };

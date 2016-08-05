@@ -12,9 +12,9 @@ angular.module('starter')
                                        $translate,
                                        $ionicActionSheet,
                                        $cordovaCamera) {
-if($localStorage.tokens){
-  var access_token = $localStorage.tokens.access_token;
-}
+    if($localStorage.tokens){
+      var access_token = $localStorage.tokens.access_token;
+    }
 
 
     $scope.data = {
@@ -29,6 +29,7 @@ if($localStorage.tokens){
       //else{
       if($localStorage.CurrentUser){
         $scope.user = $localStorage.CurrentUser;
+        console.log($localStorage.CurrentUser);
       }
 
       $scope.user.created_at = $scope.user.created_at.substr(0, 4);
@@ -143,13 +144,14 @@ if($localStorage.tokens){
     $scope.userData = {};
     $scope.userData.bio = $localStorage.CurrentUser.bio;
     if($localStorage.CurrentUser.profile_picture) {
-      $scope.userData.profile_picture = {
-        s70: $localStorage.CurrentUser.profile_picture.s70
-      };
+      $scope.userData.profile_picture = $localStorage.CurrentUser.profile_picture;
+    }
+    else{
+      $scope.userData.profile_picture = {};
     }
 
     //console.log($localStorage.CurrentUser.bio);
-    $scope.submitFormUpdate = function (isFormValid) {
+    $scope.submitFormUpdate = function () {
       console.log($scope.userData);
       //for(var i =0;)
       var field = $scope.userData;
@@ -161,13 +163,14 @@ if($localStorage.tokens){
         })
       };
 
-      if (isFormValid) {
+      if (field) {
         //var fd = new FormData;
 
         //fd.append('user[bio]', $scope.userData.textarea);
         $ionicLoading.show();
         ProfileService.updateProfile($scope.userData).then(function (data) {
-          //console.log(data);
+          console.log($scope.userData);
+          console.log("SUCCESS", data);
           AuthService.showUser($localStorage.tokens.access_token).then(function (user) {
             //console.log(user);
             $localStorage.CurrentUser = user;
@@ -220,40 +223,40 @@ if($localStorage.tokens){
         targetHeight: 140
       };
 
-        $ionicActionSheet.show({
-          titleText: "Select image sour",
-          buttons: [
-            { text: "<i class=\"icon ion-camera\"></i> Camera" },
-            { text: "<i class=\"icon ion-image\"></i> Gallery" }
-          ],
-          cancelText: "Cancel",
-          cancel: angular.noop,
-          buttonClicked: function (index) {
-            switch (index) {
-              case 0:
-                options.sourceType = Camera.PictureSourceType.CAMERA;
-                $cordovaCamera.getPicture(options).then(function (imageURI) {
-                  // convert base64 to file
-                  //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
-                  //$scope.stagePhoto(file);
-                  $scope.userData.profile_picture.s70 = "data:image/png;base64," + imageURI;
-                }, function (err) {
-                  console.log(err);
-                });
-                break;
-              case 1:
-                options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
-                $cordovaCamera.getPicture(options).then(function (imageURI) {
-                  //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
-                  //$scope.stagePhoto(file);
-                  $scope.userData.profile_picture.s70 = "data:image/png;base64," + imageURI;
-                }, function (err) {
-                  console.log(err);
-                });
-                break;
-            }
-            return true;
+      $ionicActionSheet.show({
+        titleText: "Select image sour",
+        buttons: [
+          { text: "<i class=\"icon ion-camera\"></i> Camera" },
+          { text: "<i class=\"icon ion-image\"></i> Gallery" }
+        ],
+        cancelText: "Cancel",
+        cancel: angular.noop,
+        buttonClicked: function (index) {
+          switch (index) {
+            case 0:
+              options.sourceType = Camera.PictureSourceType.CAMERA;
+              $cordovaCamera.getPicture(options).then(function (imageURI) {
+                // convert base64 to file
+                //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
+                //$scope.stagePhoto(file);
+                $scope.userData.profile_picture.s70 = "data:image/png;base64," + imageURI;
+              }, function (err) {
+                console.log(err);
+              });
+              break;
+            case 1:
+              options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
+              $cordovaCamera.getPicture(options).then(function (imageURI) {
+                //var file = ImageUtil.dataURItoBlob("data:image/png;base64," + imageURI);
+                //$scope.stagePhoto(file);
+                $scope.userData.profile_picture.s70 = "data:image/png;base64," + imageURI;
+              }, function (err) {
+                console.log(err);
+              });
+              break;
           }
-        });
+          return true;
+        }
+      });
     };
   });

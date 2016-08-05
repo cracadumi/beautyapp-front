@@ -19869,6 +19869,15 @@ ion-header-bar {
 .filters .price-bar .button.button-dark {
   color: #fff; }
 
+.favorites .list .item-avatar .item-content {
+  padding-left: 90px; }
+  .favorites .list .item-avatar .item-content img {
+    top: 0;
+    left: 0;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 0px; }
+
 .profile-page .list.card {
   margin: 0 0 0 0; }
   .profile-page .list.card .item-avatar {
@@ -19878,11 +19887,11 @@ ion-header-bar {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6132c2+0,582daf+17,381d6f+66,2b1756+100 */
     background: #6132c2;
     /* Old browsers */
-    background: -moz-linear-gradient(top, #6132c2 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
+    background: -moz-linear-gradient(top, #6735ce 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #6132c2 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
+    background: -webkit-linear-gradient(top, #6735ce 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #6132c2 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
+    background: linear-gradient(to bottom, #6735ce 0%, #582daf 17%, #381d6f 66%, #2b1756 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     padding: 0px 10px 10px;
     padding-left: 10px !important;
@@ -19938,14 +19947,16 @@ ion-header-bar {
           border: 3px dashed #fff;
           width: calc(25vw - 10px);
           height: calc(25vw - 10px);
-          margin: 0 0 0 10px;
+          margin: 10px 0 0 10px;
           text-align: center;
           padding: 12px 0;
           line-height: 18px;
           font-size: 15px;
           text-transform: uppercase;
           white-space: normal;
-          color: #e6e6e6; }
+          color: #e6e6e6;
+          display: inline-block;
+          vertical-align: top; }
     .profile-page .list.card .item.item-body .list-reviews .item-thumbnail-left {
       max-height: 100px;
       padding-left: 100px;
